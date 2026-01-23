@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading 0: Tools and Python Basics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #404040;
+            background: #edf0f2;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .sidebar {
+            width: 300px;
+            background: #343131;
+            color: #d9d9d9;
+            padding: 2rem 1.5rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            color: #b3b3b3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .sidebar a:hover {
+            color: #55a5d9;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 3rem;
+            max-width: 900px;
+        }
+
+        h1 {
+            color: #2980b9;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e1e4e5;
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: #2980b9;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: #2980b9;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            color: #404040;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: #f3f6f6;
+            padding: 2px 5px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            color: #e74c3c;
+            border: 1px solid #e1e4e5;
+        }
+
+        pre {
+            background: #f8f8f8;
+            border: 1px solid #e1e4e5;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            line-height: 1.4;
+        }
+
+        pre code {
+            background: transparent;
+            border: none;
+            color: #333;
+            padding: 0;
+        }
+
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #3091d1;
+            text-decoration: underline;
+        }
+
+        .note {
+            background: #e7f2fa;
+            border-left: 3px solid #2980b9;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning {
+            background: #ffedcc;
+            border-left: 3px solid #f0b37e;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning p:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+            border: 1px solid #e1e4e5;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#markdown">Markdown</a></li>
+                <li><a href="#jupyter">Jupyter</a></li>
+                <li><a href="#command-line">The Command Line</a>
+                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                        <li><a href="#bash-prompt">Bash Prompt</a></li>
+                        <li><a href="#ls">ls</a></li>
+                        <li><a href="#cd">cd</a></li>
+                        <li><a href="#mv">mv</a></li>
+                        <li><a href="#cp">cp</a></li>
+                        <li><a href="#rm">rm</a></li>
+                    </ul>
+                </li>
+                <li><a href="#git">Git</a>
+                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                        <li><a href="#repo-overview">Repository Overview</a></li>
+                        <li><a href="#cloning">Cloning</a></li>
+                        <li><a href="#status">Checking Status</a></li>
+                        <li><a href="#adding">Adding Files</a></li>
+                        <li><a href="#committing">Committing</a></li>
+                        <li><a href="#pushing">Pushing</a></li>
+                        <li><a href="#github">GitHub & Forking</a></li>
+                    </ul>
+                </li>
+                <li><a href="#python">Python Preview</a>
+                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                        <li><a href="#integers">Integers</a></li>
+                        <li><a href="#strings">Strings</a></li>
+                        <li><a href="#lists">Lists</a></li>
+                        <li><a href="#comments">Comments</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1 id="reading-0">Reading 0: Tools and Python Basics</h1>
+
+            <p>In this chapter, you will learn about some of the tools you will use throughout this course as you learn software design. You will also learn a bit of basic Python. After reading this chapter, you should have enough information to reference as you learn to work with code and submit assignments in Assignment 0.</p>
+
+            <h2 id="markdown">Markdown</h2>
+
+            <p>Markdown is a simple language for structuring text that is designed to be easy to read and write. Technically, Markdown is a programming language with a very specific application (structuring text), and so is written as <em>source code</em> (plaintext) that is then displayed as text with special formatting for structural elements such as section headers, links, images, and code.</p>
+
+            <p>It is important to note that Markdown is primarily aimed at <em>structuring</em> text rather than <em>formatting</em> text. On its own, Markdown does not provide a way to do things like change the font or font size, resize images, or use different colors for links. Part of the reason for this is that Markdown was originally designed to be converted to Hypertext Markup Language (HTML) and used on the Web, where it is typical to use Cascading Style Sheets (CSS) to format text.</p>
+
+            <p>Files that are purely Markdown usually end in <code>.md</code>, but the language is used in a wide variety of applications. Jupyter notebooks (which most assignments will be) use Markdown to format non-code portions, and so the assignment is written almost entirely in Markdown.</p>
+
+            <p>As your first foray into learning Markdown syntax, you should read GitHub's <a href="https://guides.github.com/features/mastering-markdown/">Mastering Markdown</a> page.</p>
+
+            <h3>Optional Exercise: Markdown Tutorial</h3>
+
+            <p>This interactive <a href="https://www.markdowntutorial.com/">Markdown tutorial</a> guides you through a few more Markdown concepts not mentioned above and has some helpful practice exercises. While these additional concepts are useful in the right context, we will probably not use them for the assignment.</p>
+
+            <h2 id="jupyter">Jupyter</h2>
+
+            <p>Jupyter is an interactive computing platform for <em>notebooks</em>, structured documents that can display and run both formatted text and code. Jupyter is often used for Python and rather popular in the data science community, although its use is not limited to either of these.</p>
+
+            <p>A notebook consists of a series of <em>cells</em>, which are (usually short) blocks of text or code that can be run. Each cell can be a Markdown cell, code cell, or raw cell, but in this course we will only use Markdown and code cells.</p>
+
+            <div class="note">
+                <p><strong>Note:</strong> In Jupyter Notebook, a selected cell will appear with a blue or green bar on the left. Blue means that the cell is selected and that you are in <em>command mode</em>, where you can do operations such as copying a cell or merging two cells. Green means that you are in <em>edit mode</em>, and you should see a text cursor somewhere in the cell.</p>
+            </div>
+
+            <p>From command mode, you can press <code>Enter</code> to enter edit mode for the selected cell, and <code>Esc</code> to return to command mode, keeping the cell selected. In command mode, you can use <code>Up/Down</code> to select the cell above or below the current one. You can type <code>h</code> from command mode to see a list of all possible command shortcuts.</p>
+
+            <p>To start working on Jupyter Notebooks, run the command <code>jupyter notebook</code> in Ubuntu. For Jupyter Lab, run the command <code>jupyter lab</code> instead.</p>
+
+            <h2 id="command-line">The Command Line</h2>
+
+            <p>Most people interact with a computer through a <em>graphical user interface (GUI)</em>, but many tasks in computing can be more efficiently done through a <em>command-line interface (CLI)</em>. Learning to effectively use a CLI is an important skill in computing, particularly if you plan on using computing beyond this course.</p>
+
+            <p>The CLI we will use in this course is that of Ubuntu Linux 20.04 running on the Windows Subsystem for Linux.</p>
+
+            <h3 id="bash-prompt">The Bash Prompt and Command Usage</h3>
+
+            <p>The line <code>(base) steve@DESKTOP-PSCV8TC:~$</code> is called the <em>prompt</em> because it prompts the user for input (shown by the cursor to its right). Most prompts also show some information about the shell and/or system.</p>
+
+            <p>On many sites, you will see Bash commands written like this:</p>
+
+            <pre><code>$ ls</code></pre>
+
+            <p>The <code>$</code> indicates that this is a command in Bash, and should not be included (in other words, this is telling you to type <code>ls</code> and press <code>Enter</code>). A more complicated command might look like this:</p>
+
+            <pre><code>$ unshare -r --fork --pid unshare -r --fork --pid --mount-proc bash</code></pre>
+
+            <p>The first word in the command (<code>unshare</code>) is the name of a program that the shell will run, and the remaining words are called <em>arguments</em> to <code>unshare</code>. The arguments that start with one or more hyphens such as <code>-r</code> and <code>--fork</code> are called <em>flags</em> or <em>options</em>.</p>
+
+            <h3 id="ls">ls</h3>
+
+            <p>Common Bash commands are often abbreviations for words that describe the task being done. For example, <code>ls</code> is short for "list", and lists all the files in a folder. By default, <code>ls</code> shows all of the files in the current folder. On our sample machine, this is what we get:</p>
+
+            <pre><code>$ ls
+Anaconda3-2020.02-Linux-x86_64.sh  anaconda3</code></pre>
+
+            <p>You can also use <code>ls</code> to view the contents of other directories. For example, running <code>ls anaconda3</code> would show the contents of the <code>anaconda3</code> directory.</p>
+
+            <p>You can also use <code>ls</code> to view files and information about them. For example, typing <code>ls -l Anaconda3-2020.02-Linux-x86_64.sh</code> will show detailed information:</p>
+
+            <pre><code>$ ls -l Anaconda3-2020.02-Linux-x86_64.sh
+-rwxrwxrwx 1 user user 546910666 Mar 11 12:04 Anaconda3-2020.02-Linux-x86_64.sh</code></pre>
+
+            <p>The <code>-l</code> flag prints extra information about the file, including the size of the file in bytes (546910666) and when the file was last modified (March 11, 2020 at 12:04 PM).</p>
+
+            <h3 id="cd">cd</h3>
+
+            <p>The <code>cd</code> command is short for "change directory" and is used to move to another directory. Unless there is an error, <code>cd</code> does not produce any output, but on some systems you will still see a change when moving into a new directory:</p>
+
+            <pre><code>(base) user@DESKTOP-PSCV8TC:~ $ cd anaconda3
+(base) user@DESKTOP-PSCV8TC:~/anaconda3 $</code></pre>
+
+            <p>Each directory contains two special directories that are not shown by default: <code>.</code> refers to the current directory, and <code>..</code> refers to the parent of the current directory. So if you are in <code>~/anaconda3</code> and want to move to <code>~</code>, you can type <code>cd ..</code> rather than <code>cd ~</code>.</p>
+
+            <p>Finally, running <code>cd</code> on its own will change to <code>~</code> by default.</p>
+
+            <h3 id="mv">mv</h3>
+
+            <p>The <code>mv</code> command is short for "move" and is used to move or rename a file or directory. For example, if you want to change the name of a file, you can do something like this:</p>
+
+            <pre><code>$ mv Anaconda3-2020.02-Linux-x86_64.sh anaconda-installer.sh
+$ ls
+anaconda-installer.sh anaconda3</code></pre>
+
+            <p>Usually, <code>mv old-name new-name</code> will rename the file or directory <code>old-name</code> to <code>new-name</code>. But if a file or directory called <code>new-name</code> already exists, things get a little complicated:</p>
+
+            <ul>
+                <li>If <code>old-name</code> and <code>new-name</code> are both files, then <code>new-name</code> will be overwritten with <code>old-name</code> (so <code>new-name</code> will be deleted and <code>old-name</code> will be renamed to <code>new-name</code>).</li>
+                <li>If <code>old-name</code> is a directory and <code>new-name</code> is a file, then <code>mv</code> will fail with an error.</li>
+                <li>Otherwise, <code>new-name</code> is a directory, and regardless of whether <code>old-name</code> is a file or directory, it will be moved <em>into</em> <code>new-name</code>.</li>
+            </ul>
+
+            <div class="warning">
+                <p><strong>Warning:</strong> You should be very careful when using <code>mv</code>, because there is no undo operation for most Bash commands. If you overwrite a file using <code>mv</code>, you will probably not be able to recover it.</p>
+            </div>
+
+            <h3 id="cp">cp</h3>
+
+            <p>The <code>cp</code> command is short for "copy" and is similar to <code>mv</code> except that it does not remove the old file. Because <code>cp</code> makes a copy of a file, it takes longer to run for larger files.</p>
+
+            <p>There are a few differences between <code>cp</code> and <code>mv</code>. Most notably, copying a directory on its own will not work:</p>
+
+            <pre><code>$ cp anaconda3 anaconda4
+cp: -r not specified; omitting directory 'anaconda3'</code></pre>
+
+            <p>As the error message suggests, the <code>-r</code> flag is necessary when copying directories. The correct syntax would thus be <code>cp -r anaconda3 anaconda4</code>.</p>
+
+            <h3 id="rm">rm</h3>
+
+            <p>The <code>rm</code> command is short for "remove". As its name suggests, <code>rm</code> removes files or directories, and should be used with caution. If used on a file, <code>rm</code> will permanently remove that file <em>without any confirmation</em>:</p>
+
+            <pre><code>$ ls
+anaconda-installer.sh anaconda3 foo
+$ rm foo
+$ ls
+anaconda-installer.sh anaconda3</code></pre>
+
+            <p>However, if <code>rm</code> is used on a directory, it will not be removed by default:</p>
+
+            <pre><code>$ ls
+anaconda-installer.sh anaconda3 bar
+$ rm bar
+rm: cannot remove 'bar': Is a directory</code></pre>
+
+            <p>To remove a directory <code>bar</code>, use <code>rm -r bar</code> instead. Make sure to exercise caution, as this will irretrievably remove <em>all</em> files in <code>bar</code>, as well as <code>bar</code> itself.</p>
+
+            <h2 id="git">Git</h2>
+
+            <p>Software design is a collaborative, iterative process. As work on a software project goes on, many people can be working with the same code, updating it with different features, documentation, or bug fixes. To minimize the risk of chaos in the software design process, we will learn and use <em>Git</em> in this course. Git is a <em>version control system</em>, a type of software designed to keep track of changes to a set of files over time.</p>
+
+            <h3 id="repo-overview">Repository Overview</h3>
+
+            <p>Git operates on a <em>repository</em> of files, which consists of a directory of files and other directories. Changes to the files within a repository are tracked as a series of <em>commits</em>, which essentially represent a snapshot of the repository's files and directories at a given point in time.</p>
+
+            <p>Within a repository folder, Git will only track the files that you tell it to and only incorporate changes that you specify should be included in a commit. The process of marking modifications to a file to be included in the next commit is called <em>staging</em>. Files that Git watches for changes are called <em>tracked</em>, while files in a repository but not monitored by Git for changes are called <em>untracked</em>.</p>
+
+            <h3 id="cloning">Cloning a Repository</h3>
+
+            <p>In most cases, you begin by <em>cloning</em> a repository (usually from a different machine) to your machine. This creates a copy of the repository on your machine, complete with its version history and previous versions of files.</p>
+
+            <p>To clone a repository, you can use the command <code>git clone https://github.com/user/repo.git</code>, where <code>https://github.com/user/repo.git</code> is replaced with the URL of the repository you want to copy. Running this command will produce output that looks like this:</p>
+
+            <pre><code>$ git clone https://github.com/user/repo.git
+Cloning into 'repo'...
+remote: Enumerating objects: 275, done.
+remote: Total 275 (delta 0), reused 0 (delta 0), pack-reused 275
+Receiving objects: 100% (275/275), 45.77 KiB | 278.00 KiB/s, done.
+Resolving deltas: 100% (118/118), done.</code></pre>
+
+            <h3 id="status">Checking the Repository Status</h3>
+
+            <p>The command <code>git status</code> can be used to track the state of the repository. The result of running this command in a repository looks something like this:</p>
+
+            <pre><code>$ git status
+On branch main
+
+Your branch is up-to-date with 'origin/main'.
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+    README.md
+    bar.py
+    foo.py
+
+nothing added to commit but untracked files present (use "git add" to track)</code></pre>
+
+            <div class="note">
+                <p><strong>Note:</strong> In general, <code>git status</code> is one of the most useful ways for tracking the state of a repository and for diagnosing problems. If you run into any problems while using Git, we strongly recommend starting with the output of <code>git status</code>.</p>
+            </div>
+
+            <h3 id="adding">Adding and Removing Files</h3>
+
+            <p>We can stage a file or set of files by using <code>git add</code>, followed by the name of all files to stage:</p>
+
+            <pre><code>$ git add README.md
+$ git status
+On branch main
+
+Your branch is up-to-date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+        new file:   README.md
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+        bar.py
+        foo.py</code></pre>
+
+            <p>You can remove a file using <code>git rm</code>, which will stop tracking a file <em>and</em> (irretrievably) remove it from the directory. If you want to stop tracking a file like <code>README.md</code> but do not want to delete it from your machine, you can run <code>git rm --cached README.md</code> instead.</p>
+
+            <h3 id="committing">Committing Your Changes</h3>
+
+            <p>Once you have staged all of the changes you want to include, you can use the command <code>git commit</code> to package your changes into a new version. This command will launch a text editor with a file for writing a <em>commit message</em>, which describes the changes that make up this commit.</p>
+
+            <p>We recommend that you stick to the following guidelines:</p>
+
+            <ul>
+                <li>The first line of your commit message should be at most 50 characters long.</li>
+                <li>The first line is mandatory, and should describe the change you make as an imperative (i.e., <code>add first draft of README</code> rather than <code>adds...</code> or <code>this commit adds...</code>).</li>
+                <li>Your commit message should describe your changes in reasonable detail. For example, <code>add first draft of README</code> is fine, while <code>add files</code> is not.</li>
+                <li>All other lines of your commit message should be at most 72 characters long.</li>
+            </ul>
+
+            <h3 id="pushing">Pushing Your Changes</h3>
+
+            <p>At this point, you have created a new commit to your repository. However, if your repository has a remote copy such as <code>origin/main</code>, then this copy does not yet have your new commit - the changes exist only in your <em>local copy</em>. You will need to <em>push</em> your changes to the remote copy.</p>
+
+            <p>You can push your commits to this copy by running <code>git push origin</code>, which when successful produces output like this:</p>
+
+            <pre><code>Enumerating objects: 19, done.
+Counting objects: 100% (19/19), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 984 bytes | 492.00 KiB/s, done.
+Total 10 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (9/9), completed with 9 local objects.
+To github.com:user/repo.git
+   507c2a3..f81bcb2  main -&gt; main</code></pre>
+
+            <h3 id="github">GitHub and Forking</h3>
+
+            <p>In this course, we use <a href="https://github.com">GitHub</a> to host copies of Git repositories. One convenient feature GitHub offers is called <em>forking</em>, which is essentially cloning a repository to your GitHub account. The advantage of forking is that it allows you to make a copy of someone else's repository in your account. You can then clone this copy to your machine, make changes, and push commits back to your copy without affecting the original repository on GitHub.</p>
+
+            <p>To fork a repository, visit the repository's page on GitHub. Near the upper-left corner of the page, you should see a button that says "Fork". Click on this button to copy the repository to one in your account.</p>
+
+            <h2 id="python">A Preview of Python</h2>
+
+            <p>For your first assignment, you do not need to write any Python code per se - you are simply setting the values of certain variables. Every variable in Python has a <em>type</em> that determines what a program can do with that variable. Below, we provide a quick preview of the types you will encounter in your first assignment.</p>
+
+            <h3 id="integers">Integers</h3>
+
+            <p>As its name suggests, the <em>integer</em> type represents integer values (numbers with nothing past the decimal point), like 42. Integers can be negative. You can do standard arithmetic with integers in Python, like adding and multiplying them. Note, though, that if you divide two integers, you will get a different type called a <em>float</em> that we will see later.</p>
+
+            <h3 id="strings">Strings</h3>
+
+            <p>The <em>string</em> type represents a sequence (or string) of characters. Generally, a string can be written simply as the sequence of characters it represents, surrounded by single quotes (<code>'</code>) or double quotes (<code>"</code>), like <code>'quack'</code> or <code>"cellar door"</code>. There is no difference between strings written with single quotes or double quotes - the quote marks simply need to match.</p>
+
+            <p>If you need to write a quote mark in a string, you can precede it with a backslash (<code>\</code>), like this:</p>
+
+            <pre><code>"That depends on what your definition of \"is\" is."</code></pre>
+
+            <p>You can have an <em>empty string</em> with nothing in it. The empty string is written as <code>""</code>.</p>
+
+            <h3 id="lists">Lists</h3>
+
+            <p>A <em>list</em> represents a sequence of items. You can write a list in square brackets (<code>[]</code>) and separate items with commas (<code>,</code>), like this:</p>
+
+            <pre><code>pi_digits = [3, 1, 4, 1, 5, 9]</code></pre>
+
+            <p>The items in a list can be of any type, and you can mix and match them, like this:</p>
+
+            <pre><code>numbers_and_letters = [42, "a", -3, "z"]</code></pre>
+
+            <p>Like strings, you can have an empty list with nothing in it: <code>[]</code>.</p>
+
+            <h3 id="comments">Comments</h3>
+
+            <p>At any point in a line of Python code, you can write a hash mark (<code>#</code>) and follow it with anything you want. Until the end of the line, anything you write is not considered part of your Python code. Text written like this is called a <em>comment</em>, because it can be used to add comments to your code, like this:</p>
+
+            <pre><code>x = 42  # Yes, I know this is a bad variable name.
+
+# Haikus are easy
+# But sometimes they don't make sense
+# Refrigerator</code></pre>
+        </main>
+    </div>
+</body>
+</html>
