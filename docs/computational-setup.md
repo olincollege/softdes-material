@@ -1,6 +1,7 @@
 ---
 title: Computational Setup
-nav_order: 1
+nav_order: 2
+layout: default
 ---
 
 # Computational Setup Instructions: SoftDes Spring 2026
@@ -31,11 +32,12 @@ Please follow the ["Olin/UNITY Onboarding Instructions"](https://docs.google.com
 Now we're going to add a couple of bells and whistles to VS Code. You should only have to do this once.
 
 1. You might see a window that says "browse popular extensions", or you can click on the icon on the left side (bottom) that looks like three blocks together with one block offset.
-2. Search for "autopep8"; a formatter extension and click "install."
+2. Search for ``ms-python.black-formatter`` to find "Black Formatter"; a formatter extension and click "install."
 3. Search for "pylint"; a different formatter extension and click "install."
 4. Search for "quarto"; a scientific and technical publishing system and click "install."
 5. Search for "GitHub Pull Requests and Issues" extension and click "install". Note that this adds a little GitHub icon that looks like the silhouette of a cartoon animal with ears to the left side. You'll use this later.
 6. Search for "Jupyter." Select the one that is just called "Jupyter" and has >5 million downloads, and click "install."
+7. Enable autoformatting. Click the "hamburger" icon (top left,  three horiontal lines)in VS Code -> File -> Preferences -> Settings -> search format -> change Editor: Default Formatter to Black Formatter -> check the box next to  Editor: Format on Save
    
    ![Image of correct jupyter plugin](docs/images/computational-setup/jupyter_plugin.png)
 
@@ -46,7 +48,7 @@ Now we're going to add a couple of bells and whistles to VS Code. You should onl
 Although the course readings have details on GitHub, Unity also has an overview that you may find helpful: [Unity Git Guide](https://docs.unity.rc.umass.edu/documentation/get-started/git-guide/)
 
 1. To start, you need to fork the course repository. This is located at https://github.com/olincollege/softdes-2026-01. You will need to be logged into GitHub to access this repo. At the top right of the page, you should see a button labeled "Fork." Click it to fork the repo.
-2. In your fork (not the main course repo), click the green button that says Code. It will open a drop-down menu; make sure HTTPS is selected. Copy the url. It should look like `https://github.com/myGitHubUsername/softdes-2025-01.git`. If you see olincollege instead of your GitHub username, do not use it, that is not your fork but rather the main course repo.
+2. In your fork (not the main course repo), click the green button that says Code. It will open a drop-down menu; make sure HTTPS is selected. Copy the url. It should look like `https://github.com/myGitHubUsername/softdes-2026-01.git`. If you see olincollege instead of your GitHub username, do not use it, that is not your fork but rather the main course repo.
 3. In the top right corner, click on the box with the big rectangle on top and the little rectangle on the bottom:
    
    ![Terminal button](images/computational-setup/terminal_button.png)
@@ -64,7 +66,7 @@ Although the course readings have details on GitHub, Unity also has an overview 
 6. Click on the GitHub (creature with ears) icon on the left side. It will tell you haven't opened a folder. Open `/work/pi_softdes26_olin_edu/[yourdirectory]` where [yourdirectory] is what you created in the previous step.
 7. Click "log into GitHub" and follow the prompts.
 8. From VS Code's "Welcome" tab, click "Clone Git Repository" or type "clone git" into the command palette.
-9. The answer to "Choose a folder to clone" is `https://github.com/myGitHubUsername/softdes-2025-01.git`, which you got in Step 1.
+9. The answer to "Choose a folder to clone" is `https://github.com/myGitHubUsername/softdes-2026-01.git`, which you got in Step 1.
 10. The place you want to clone it is `/work/pi_softdes26_olin_edu/[yourdirectory]` where you replace "astudent" with your folder you made in Step 5.
 
 ## Activate Virtual Environment (to allow Quarto)
@@ -82,13 +84,13 @@ For that reason, we have you install Quarto, an open-source publishing system. Q
 
 ## Setting Remotes
 
-1. In your terminal run `git remote add upstream URL`, replacing "URL" with the URL for the main SoftDes course repo (`git@github.com:olincollege/softdes-2025-01`).
+1. In your terminal run `git remote add upstream URL`, replacing "URL" with the URL for the main SoftDes course repo (`git@github.com:olincollege/softdes-2026-01`).
 2. To test that the remote is set correctly, run `git remote -v`. This should output the following:
 ```
-   origin	git@github.com:myGithubUsername/softdes-2025-01.git (fetch)
-   origin	git@github.com:myGithubUsername/softdes-2025-01.git (push)
-   upstream	git@github.com:olincollege/softdes-2025-01.git (fetch)
-   upstream	git@github.com:olincollege/softdes-2025-01.git (push)
+   origin	git@github.com:myGithubUsername/softdes-2026-01.git (fetch)
+   origin	git@github.com:myGithubUsername/softdes-2026-01.git (push)
+   upstream	git@github.com:olincollege/softdes-2026-01.git (fetch)
+   upstream	git@github.com:olincollege/softdes-2026-01.git (push)
 ```
 
 ## What in the World Did I Just Do?
