@@ -65,9 +65,9 @@ Although the course readings have details on GitHub, Unity also has an overview 
 ```
 6. Click on the GitHub (creature with ears) icon on the left side. It will tell you haven't opened a folder. Open `/work/pi_softdes26_olin_edu/[yourdirectory]` where [yourdirectory] is what you created in the previous step.
 7. Click "log into GitHub" and follow the prompts.
-8. From VS Code's "Welcome" tab, click "Clone Git Repository" or type "clone git" into the command palette.
-9. The answer to "Choose a folder to clone" is `https://github.com/myGitHubUsername/softdes-2026-01.git`, which you got in Step 1.
-10. The place you want to clone it is `/work/pi_softdes26_olin_edu/[yourdirectory]` where you replace "astudent" with your folder you made in Step 5.
+8. From VS Code's "Welcome" tab, click "Clone Repository" or type "clone git" into the command palette.
+9. The answer to "Clone from URL" is `https://github.com/olincollege/softdes-2026-01.git`, which you got in Step 1.
+10. The place you want to clone it is `/work/pi_softdes26_olin_edu/[yourdirectory]` where you replace "[yourdirectory]" with your folder you made in Step 5.
 
 ## Activate Virtual Environment (to allow Quarto)
 
