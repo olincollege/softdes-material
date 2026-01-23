@@ -119,7 +119,7 @@
         <p>Now we're going to add a couple of bells and whistles to VS Code. You should only have to do this once.</p>
         <ol>
             <li>You might see a window that says "browse popular extensions", or you can click on the icon on the left side (bottom) that looks like three blocks together with one block offset.</li>
-            <li>Search for "autopep8"; a formatter extension and click "install."</li>
+            <li>Search for  ms-python.black-formatter to find "Black Formatter"; a formatter extension and click "install."</li>
             <li>Search for "pylint"; a different formatter extension and click "install."</li>
             <li>Search for "quarto"; a scientific and technical publishing system and click "install."</li>
             <li>Search for "GitHub Pull Requests and Issues" extension and click "install". Note that this adds a little GitHub icon that looks like the silhouette of a cartoon animal with ears to the left side. You'll use this later.</li>
@@ -127,6 +127,8 @@
                 <div style="text-align: center; margin: 15px 0;">
                     <img src="jupyter_plugin.png" alt="Image of correct jupyter plugin" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
                 </div>
+
+           <!-- <li> Enable autoformatting. Click the "hamburger" icon (top left,  three horiontal lines)in VS Code -> File -> Preferences -> Settings -> search format -> change Editor: Default Formatter to Black Formatter -> check the box next to  Editor: Format on Save</li>    -->
             <li><span class="optional">(Optional)</span> You may have to configure your browser so that it allows VSCode to access your clipboard: this will make things easier later. See instructions here: <a href="https://code.visualstudio.com/docs/remote/codespaces#_how-do-i-allow-vs-code-to-access-my-clipboard-for-reading" target="_blank">VS Code Clipboard Access</a>. If you have Firefox, you may have to click on the shield icon to the left of the web address and add <code>https://ood.unity.rc.umass.edu</code> to the list of exceptions to "Advanced Tracking Protection."</li>
         </ol>
 
@@ -170,10 +172,10 @@
         <ol>
             <li>In your terminal run <code>git remote add upstream URL</code>, replacing "URL" with the URL for the main SoftDes course repo (<code>git@github.com:olincollege/softdes-2025-01</code>).</li>
             <li>To test that the remote is set correctly, run <code>git remote -v</code>. This should output the following:
-                <pre><code>origin	git@github.com:myGithubUsername/softdes-2025-01.git (fetch)
-origin	git@github.com:myGithubUsername/softdes-2025-01.git (push)
-upstream	git@github.com:olincollege/softdes-2025-01.git (fetch)
-upstream	git@github.com:olincollege/softdes-2025-01.git (push)</code></pre>
+                <pre><code>origin	git@github.com:myGithubUsername/softdes-2026-01.git (fetch)
+origin	git@github.com:myGithubUsername/softdes-2026-01.git (push)
+upstream	git@github.com:olincollege/softdes-2026-01.git (fetch)
+upstream	git@github.com:olincollege/softdes-2026-01.git (push)</code></pre>
             </li>
         </ol>
 
