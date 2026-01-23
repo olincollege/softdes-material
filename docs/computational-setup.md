@@ -37,7 +37,7 @@ Now we're going to add a couple of bells and whistles to VS Code. You should onl
 5. Search for "GitHub Pull Requests and Issues" extension and click "install". Note that this adds a little GitHub icon that looks like the silhouette of a cartoon animal with ears to the left side. You'll use this later.
 6. Search for "Jupyter." Select the one that is just called "Jupyter" and has >5 million downloads, and click "install."
    
-   ![Image of correct jupyter plugin](images/computational-setup/jupyter_plugin.png)
+   ![Image of correct jupyter plugin](docs/images/computational-setup/jupyter_plugin.png)
 
 7. *(Optional)* You may have to configure your browser so that it allows VSCode to access your clipboard: this will make things easier later. See instructions here: [VS Code Clipboard Access](https://code.visualstudio.com/docs/remote/codespaces#_how-do-i-allow-vs-code-to-access-my-clipboard-for-reading). If you have Firefox, you may have to click on the shield icon to the left of the web address and add `https://ood.unity.rc.umass.edu` to the list of exceptions to "Advanced Tracking Protection."
 
