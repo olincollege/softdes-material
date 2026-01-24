@@ -18,7 +18,7 @@ Please follow the ["Olin/UNITY Onboarding Instructions"](https://docs.google.com
 
 ## Login and try VS Code
 
-1. After your account is approved (you'll get an email) go to: https://ood.unity.rc.umass.edu/
+1. After your account is approved (you'll get an email) go to: [https://ood.unity.rc.umass.edu/](https://ood.unity.rc.umass.edu/)
 2. Click the Olin logo (or type "Olin" into the "Search for Organization" box). You should be able to login using your Olin credentials.
 3. On the top navigation bar, click "Interactive Apps" and then "VS Code"
 4. You should now see a page with text boxes populated with default values. Unity is a supercomputer, so it's got a lot of computing power, and it needs to allocate and manage all the user requests it gets. It does this with a program called Slurm. As you gain experience with Unity, you can start asking for specific things you want, like particular processors that are optimized for your code.
