@@ -80,6 +80,7 @@ mkdir [yourdirectory]
 8. Paste the url that you copied in step 2, then press enter or select the `Clone from URL` option. 
 9. When prompted to choose a folder, enter the work directory you created in step 5, which should follow the format `/work/pi_softdes26_olin_edu/[yourdirectory]`.
 10. If prompted, follow the instructions in each dialog to connect your GitHub account.
+11. After VS Code finishes cloning, click the `Open` button when asked whether to open the cloned repository.
 
 ## Activate Virtual Environment (to allow Quarto)
 
