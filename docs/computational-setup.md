@@ -71,11 +71,11 @@ Although the course readings have details on GitHub, Unity also has an overview 
 cd /work/pi_softdes26_olin_edu/
 ```
    Note that on Unity, you don't want to run software in your home directory. The admins of Unity restrict the computing limits of home directories on purpose! They want you to work in an optimized directory, which for Unity is `/work/`.
-5. Create your own softdes directory by typing the following command and pressing enter, replacing the placeholder [yourdirectory] with your first initial and last name
+5. Create your own softdes directory by typing the following command and pressing enter, replacing the placeholder `[yourdirectory]` with your first initial and last name (for example, Frank Olin would create the directory `folin`)
 ```
 mkdir [yourdirectory]
 ```
-6. Click on the GitHub (creature with ears) icon on the left side. It will tell you haven't opened a folder. Open `/work/pi_softdes26_olin_edu/[yourdirectory]` where [yourdirectory] is what you created in the previous step. After the page loads, click the `Yes, I trust the authors` button.
+6. Click on the GitHub (creature with ears) icon on the left side. It will tell you haven't opened a folder. Open `/work/pi_softdes26_olin_edu/[yourdirectory]` where `[yourdirectory]` is what you created in the previous step. After the page loads, click the `Yes, I trust the authors` button.
 7. If VS Code's "Welcome" tab is open (the tab name will say `Welcome`), click `Clone Git Repository`. If not, press F1 to open the command palette and find the `Git: Clone` option.
 8. Paste the url that you copied in step 2, then press enter or select the `Clone from URL` option. 
 9. When prompted to choose a folder, enter the work directory you created in step 5, which should follow the format `/work/pi_softdes26_olin_edu/[yourdirectory]`.
