@@ -95,14 +95,14 @@ For that reason, we have you install Quarto, an open-source publishing system. Q
 
 ## Setting Remotes
 
-1. In your terminal run `git remote add upstream URL`, replacing "URL" with the URL for the main SoftDes course repo (`git@github.com:olincollege/softdes-2026-01`).
-2. To test that the remote is set correctly, run `git remote -v`. This should output the following:
+1. Run `git remote -v`. This should output the following:
 ```
    origin	git@github.com:myGithubUsername/softdes-2026-01.git (fetch)
    origin	git@github.com:myGithubUsername/softdes-2026-01.git (push)
    upstream	git@github.com:olincollege/softdes-2026-01.git (fetch)
    upstream	git@github.com:olincollege/softdes-2026-01.git (push)
 ```
+2. If the output does not contain an upstream, run `git remote add upstream https://github.com/olincollege/softdes-2026-01.git`.
 
 ## What in the World Did I Just Do?
 
