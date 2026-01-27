@@ -69,13 +69,17 @@ Using Jupyter notebooks requires a Web server to be running on your computer, so
 
 On most machines, starting the Jupyter notebook server will automatically launch your Web browser with a window that allows you to select an existing file to open or create a new file.
 
+![Jupyter Interface](images/1-python-basics/jupyter_interface.png)
+
 If not, you can look in the notebook server output for a link that looks like the following (**note that the token value is an example, and will not work on your machine**):
 
 ```
 http://localhost:8888/?token=a995013330f6bb9d0546af78778c19a99a6400397e23e1fc
 ```
 
-Jupyter notebook files have names ending in `.ipynb` (for *interactive Python notebook*).
+Jupyter notebook files have names ending in `.ipynb` (for *interactive Python notebook*). If you open a notebook file, you will see an interface that looks like this:
+
+![Jupyter Notebook Example](images/1-python-basics/jupyter_sample_notebook.png)
 
 The number next to the code cell indicates the order in which you have run the cells, while `In: [ ]` indicates that the cell has not been run yet. A cell can be run multiple times, and the numbers will count up accordingly. Sometimes the order in which you execute cells matters, so it can be helpful to double-check a notebook when you are done with it by selecting "Run all" in the Cell menu. Note that there is no way to "undo" the effect of running a cell, except to restart the kernel from the Kernel menu.
 
