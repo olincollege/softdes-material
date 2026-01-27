@@ -51,27 +51,30 @@ Now we're going to add a couple of bells and whistles to VS Code. You should onl
 
 Although the course readings have details on GitHub, Unity also has an overview that you may find helpful: [Unity Git Guide](https://docs.unity.rc.umass.edu/documentation/get-started/git-guide/)
 
-1. To start, you need to fork the course repository. This is located at https://github.com/olincollege/softdes-2026-01. You will need to be logged into GitHub to access this repo. At the top right of the page, you should see a button labeled "Fork." Click it to fork the repo.
-2. In your fork (not the main course repo), click the green button that says Code. It will open a drop-down menu; make sure HTTPS is selected. Copy the url. It should look like `https://github.com/myGitHubUsername/softdes-2026-01.git`. If you see olincollege instead of your GitHub username, do not use it, that is not your fork but rather the main course repo.
-3. In the top right corner, click on the box with the big rectangle on top and the little rectangle on the bottom:
+1. To start, you need to fork the course repository, located at [https://github.com/olincollege/softdes-2026-01](https://github.com/olincollege/softdes-2026-01). You will need to be logged into GitHub to access this repo. At the top right of the page, you should see a button labeled "Fork." Click it to fork the repo.
+2. In your fork (not the main course repo), click the green button that says Code. It will open a drop-down menu; make sure HTTPS is selected. Copy the url. It should look like `https://github.com/myGitHubUsername/softdes-2026-01.git`. Make sure the url in your browser has your GitHub username. If you see `olincollege` instead of your GitHub username, do not use it, that is not your fork but rather the main course repo. 
+3. Navigate back to VS Code. We will now open what is called the terminal. In the top right corner, click on the box with the big rectangle on top and the little rectangle on the bottom:
    
    ![Terminal button](images/computational-setup/terminal_button.png)
    
-   This is called the terminal. (You can also click on the Menu → Terminal → New terminal) You'll use this later.
-4. Move to the SoftDes working directory:
+   This should open a lower panel, which will have the terminal open by default.
+
+   ![Terminal](images/computational-setup/terminal.png)
+
+    Other options include going to the top right menu → Terminal → New terminal, or the keyboard shortcuts `Ctrl+Shift+C` and `` Ctrl+Shift+` ``
+4. Making sure the terminal is selected, move to the SoftDes working directory by typing the following command and pressing enter:
 ```
-   $ cd /work/pi_softdes26_olin_edu/
+cd /work/pi_softdes26_olin_edu/
 ```
    Note that on Unity, you don't want to run software in your home directory. The admins of Unity restrict the computing limits of home directories on purpose! They want you to work in an optimized directory, which for Unity is `/work/`.
-5. Create your own softdes directory with your first initial and last name (replacing the placeholder [yourdirectory] below)
+5. Create your own softdes directory by typing the following command and pressing enter, replacing the placeholder [yourdirectory] with your first initial and last name
 ```
-   $ mkdir [yourdirectory]
+mkdir [yourdirectory]
 ```
-6. Click on the GitHub (creature with ears) icon on the left side. It will tell you haven't opened a folder. Open `/work/pi_softdes26_olin_edu/[yourdirectory]` where [yourdirectory] is what you created in the previous step.
-7. Click "log into GitHub" and follow the prompts.
-8. From VS Code's "Welcome" tab, click "Clone Repository" or type "clone git" into the command palette.
-9. The answer to "Clone from URL" is `https://github.com/olincollege/softdes-2026-01.git`, which you got in Step 1.
-10. The place you want to clone it is `/work/pi_softdes26_olin_edu/[yourdirectory]` where you replace "[yourdirectory]" with your folder you made in Step 5.
+6. Click on the GitHub (creature with ears) icon on the left side. It will tell you haven't opened a folder. Open `/work/pi_softdes26_olin_edu/[yourdirectory]` where [yourdirectory] is what you created in the previous step. After the page loads, click the `Yes, I trust the authors` button.
+7. If VS Code's "Welcome" tab is open (the tab name will say `Welcome`), click `Clone Git Repository`. If not, press F1 to open the command palette and find the `Git: Clone` option.
+8. Paste the url that you copied in step 2, then press enter or select the `Clone from URL` option. 
+10. When prompted to choose a folder, enter the work directory you created in step 5, which should follow the format `/work/pi_softdes26_olin_edu/[yourdirectory]`.
 
 ## Activate Virtual Environment (to allow Quarto)
 
