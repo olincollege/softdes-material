@@ -18,7 +18,7 @@ Please follow the ["Olin/UNITY Onboarding Instructions"](https://docs.google.com
 
 ## Login and try VS Code
 
-1. After your account is approved (you'll get an email) go to: https://ood.unity.rc.umass.edu/
+1. After your account is approved (you'll get an email) go to: [https://ood.unity.rc.umass.edu/](https://ood.unity.rc.umass.edu/)
 2. Click the Olin logo (or type "Olin" into the "Search for Organization" box). You should be able to login using your Olin credentials.
 3. On the top navigation bar, click "Interactive Apps" and then "VS Code"
 4. You should now see a page with text boxes populated with default values. Unity is a supercomputer, so it's got a lot of computing power, and it needs to allocate and manage all the user requests it gets. It does this with a program called Slurm. As you gain experience with Unity, you can start asking for specific things you want, like particular processors that are optimized for your code.
@@ -26,6 +26,9 @@ Please follow the ["Olin/UNITY Onboarding Instructions"](https://docs.google.com
 6. For "Extra Arguments for Slurm" enter `-A pi_softdes26_olin_edu`. This tells Slurm to run VS code in the right directory that has our SoftDes installs.
 7. *(Optional)* We have a class reservation to use a portion of the Unity cores during Tuesday and Friday class times. This should work automatically (they are "magnetic") but you can also specify them in "Extra Arguments for Slurm" as `--reservation=softdes26_t` (for Tuesday) and `--reservation=softdes26_f` (for Friday). If you access Unity not in class hours, you might have to wait a minute or two before the session starts.
 8. *(Optional)* It's okay to ignore the other arguments for now. If you want to learn about them and change them as desired, check out these help pages: [Slurm Documentation](https://docs.unity.rc.umass.edu/documentation/jobs/slurm/) and/or [HPC Theory](https://docs.unity.rc.umass.edu/documentation/get-started/hpc-theory/threads-cores-processes-sockets/)
+
+Click the `Launch` button and wait as the supercomputer to processes your request. When your instance is ready, press the blue `Connect to VS Code` button at the bottom of the created box to open VS Code.
+![Unity VS Code instance](images/computational-setup/unity_vscode_instance.png)
 
 ## Configure VS Code
 
@@ -35,7 +38,10 @@ Now we're going to add a couple of bells and whistles to VS Code. You should onl
 2. Search for ``ms-python.black-formatter`` to find "Black Formatter"; a formatter extension and click "install."
 3. Search for "pylint"; a different formatter extension and click "install."
 4. Search for "quarto"; a scientific and technical publishing system and click "install."
-5. Search for "GitHub Pull Requests and Issues" extension and click "install". Note that this adds a little GitHub icon that looks like the silhouette of a cartoon animal with ears to the left side. You'll use this later.
+5. Search for the "GitHub Pull Requests and Issues" extension shown below and click "install". Note that this adds a little GitHub icon that looks like the silhouette of a cartoon animal with ears to the left side. You'll use this later.
+
+![Image of correct Github plugin](images/computational-setup/github_plugin.png)
+
 6. Search for "Jupyter." Select the one that is just called "Jupyter" and has >5 million downloads, and click "install."
 7. Enable autoformatting. Click the "hamburger" icon (top left,  three horiontal lines)in VS Code -> File -> Preferences -> Settings -> search format -> change Editor: Default Formatter to Black Formatter -> check the box next to  Editor: Format on Save
    
@@ -47,27 +53,33 @@ Now we're going to add a couple of bells and whistles to VS Code. You should onl
 
 Although the course readings have details on GitHub, Unity also has an overview that you may find helpful: [Unity Git Guide](https://docs.unity.rc.umass.edu/documentation/get-started/git-guide/)
 
-1. To start, you need to fork the course repository. This is located at https://github.com/olincollege/softdes-2026-01. You will need to be logged into GitHub to access this repo. At the top right of the page, you should see a button labeled "Fork." Click it to fork the repo.
-2. In your fork (not the main course repo), click the green button that says Code. It will open a drop-down menu; make sure HTTPS is selected. Copy the url. It should look like `https://github.com/myGitHubUsername/softdes-2026-01.git`. If you see olincollege instead of your GitHub username, do not use it, that is not your fork but rather the main course repo.
-3. In the top right corner, click on the box with the big rectangle on top and the little rectangle on the bottom:
+1. To start, you need to fork the course repository, located at [https://github.com/olincollege/softdes-2026-01](https://github.com/olincollege/softdes-2026-01). You will need to be logged into GitHub to access this repo. At the top right of the page, you should see a button labeled "Fork." Click it to fork the repo.
+2. In your fork (not the main course repo), click the green button that says Code. It will open a drop-down menu; make sure HTTPS is selected. Copy the url. It should look like `https://github.com/myGitHubUsername/softdes-2026-01.git`. Make sure the url in your browser has your GitHub username. If you see `olincollege` instead of your GitHub username, do not use it, that is not your fork but rather the main course repo. 
+3. Navigate back to VS Code. We will now open what is called the terminal. In the top right corner, click on the box with the big rectangle on top and the little rectangle on the bottom:
    
    ![Terminal button](images/computational-setup/terminal_button.png)
    
-   This is called the terminal. (You can also click on the Menu → Terminal → New terminal) You'll use this later.
-4. Move to the SoftDes working directory:
+   This should open a lower panel, which will have the terminal open by default.
+
+   ![Terminal](images/computational-setup/terminal.png)
+
+    Other options include going to the top right menu → Terminal → New terminal, or the keyboard shortcuts `Ctrl+Shift+C` and `` Ctrl+Shift+` ``
+    Learning to use the terminal is an important skill in computing, and you will learn more about the basics in Reading 0. For now, all you need to know is that we can type *commands* into the terminal, and run these by pressing enter.
+
+4. Making sure the terminal is selected, move to the SoftDes working directory by typing the following command and pressing enter:
 ```
-   $ cd /work/pi_softdes26_olin_edu/
+cd /work/pi_softdes26_olin_edu/
 ```
    Note that on Unity, you don't want to run software in your home directory. The admins of Unity restrict the computing limits of home directories on purpose! They want you to work in an optimized directory, which for Unity is `/work/`.
-5. Create your own softdes directory with your first initial and last name (replacing the placeholder [yourdirectory] below)
+5. Create your own softdes directory by typing the following command and pressing enter, replacing the placeholder [yourdirectory] with your first initial and last name
 ```
-   $ mkdir [yourdirectory]
+mkdir [yourdirectory]
 ```
-6. Click on the GitHub (creature with ears) icon on the left side. It will tell you haven't opened a folder. Open `/work/pi_softdes26_olin_edu/[yourdirectory]` where [yourdirectory] is what you created in the previous step.
-7. Click "log into GitHub" and follow the prompts.
-8. From VS Code's "Welcome" tab, click "Clone Git Repository" or type "clone git" into the command palette.
-9. The answer to "Choose a folder to clone" is `https://github.com/myGitHubUsername/softdes-2026-01.git`, which you got in Step 1.
-10. The place you want to clone it is `/work/pi_softdes26_olin_edu/[yourdirectory]` where you replace "astudent" with your folder you made in Step 5.
+6. Click on the GitHub (creature with ears) icon on the left side. It will tell you haven't opened a folder. Open `/work/pi_softdes26_olin_edu/[yourdirectory]` where [yourdirectory] is what you created in the previous step. After the page loads, click the `Yes, I trust the authors` button.
+7. If VS Code's "Welcome" tab is open (the tab name will say `Welcome`), click `Clone Git Repository`. If not, press F1 to open the command palette and find the `Git: Clone` option.
+8. Paste the url that you copied in step 2, then press enter or select the `Clone from URL` option. 
+9. When prompted to choose a folder, enter the work directory you created in step 5, which should follow the format `/work/pi_softdes26_olin_edu/[yourdirectory]`.
+10. If prompted, follow the instructions in each dialog to connect your GitHub account.
 
 ## Activate Virtual Environment (to allow Quarto)
 
@@ -75,23 +87,22 @@ Throughout this course, you will be working with a tool called Jupyter. Jupyter 
 
 For that reason, we have you install Quarto, an open-source publishing system. Quarto has a file format called qmd (Quarto Markdown), which we use as an intermediate format for managing Jupyter notebooks.
 
-1. Check which directory you are in by typing `pwd` into the terminal. If the result is not `/work/pi_softdes26_olin_edu/[yourdirectory]` type `cd /work/pi_softdes26_olin_edu/[yourdirectory]` to move to the directory. We always want to be working in this directory!
+1. Check which directory you are in by running the `pwd` command in the terminal. If the result is not `/work/pi_softdes26_olin_edu/[yourdirectory]` run the command `cd /work/pi_softdes26_olin_edu/[yourdirectory]` to move to the directory. We always want to be working in this directory!
 2. Go to the command palette of VS Code, you can click on the gear icon in the bottom right corner and then "command palette" or hit F1.
 3. Type "Python: Select Interpreter" and select it when it pops up.
-4. Then select "Select interpreter path" and enter `/work/pi_softdes26_olin_edu/class_venv/bin/python3.12`
-5. This is a virtual environment created for the course.
-6. Test: you should be able to open the .qmd markdown files!
+4. Then select "Select interpreter path" and enter `/work/pi_softdes26_olin_edu/class_venv/bin/python3.12`. This allows you to use the virtual environment created for the course.
+5. To get these changes in your terminal, close and reopen it by using the trash can or X icon on the top right of the terminal.
 
 ## Setting Remotes
 
-1. In your terminal run `git remote add upstream URL`, replacing "URL" with the URL for the main SoftDes course repo (`git@github.com:olincollege/softdes-2026-01`).
-2. To test that the remote is set correctly, run `git remote -v`. This should output the following:
+1. Run `git remote -v`. This should output the following:
 ```
    origin	git@github.com:myGithubUsername/softdes-2026-01.git (fetch)
    origin	git@github.com:myGithubUsername/softdes-2026-01.git (push)
    upstream	git@github.com:olincollege/softdes-2026-01.git (fetch)
    upstream	git@github.com:olincollege/softdes-2026-01.git (push)
 ```
+2. If the output does not contain an upstream, run `git remote add upstream https://github.com/olincollege/softdes-2026-01.git`.
 
 ## What in the World Did I Just Do?
 

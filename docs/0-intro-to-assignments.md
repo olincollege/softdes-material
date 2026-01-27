@@ -148,8 +148,9 @@ but many tasks in computing can be more efficiently done through a _command-line
 interface (CLI)_. Learning to effectively use a CLI is an important skill in
 computing, particuarly if you plan on using computing beyond this course.
 
-The CLI we will use in this course is that of Ubuntu Linux 20.04 running on the
-Windows Subsystem for Linux. It looks like this:
+You can access a CLI through Unity by clicking "shell" after logging in, or by
+selecting a terminal in VS Code (this is in the computational setup instructions.)
+An example of a CLI is below.
 
 ![A command-line interface for Ubuntu Linux](images/0-intro-to-assignments/cli_example.png)
 
@@ -213,8 +214,8 @@ we describe the commands.
 
 Common Bash commands are often abbreviations for words that describe the task
 being done. For example, `ls` is short for “list”, and lists all the files in a
-folder. By default, `ls` shows all of the files in the current folder. On our
-sample machine, this is what we get:
+folder. By default, `ls` shows all of the files in the current folder. Here's an
+example:
 
 ```bash
 $ ls
