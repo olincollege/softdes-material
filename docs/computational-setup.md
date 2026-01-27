@@ -39,7 +39,9 @@ Now we're going to add a couple of bells and whistles to VS Code. You should onl
 3. Search for "pylint"; a different formatter extension and click "install."
 4. Search for "quarto"; a scientific and technical publishing system and click "install."
 5. Search for the "GitHub Pull Requests and Issues" extension shown below and click "install". Note that this adds a little GitHub icon that looks like the silhouette of a cartoon animal with ears to the left side. You'll use this later.
+
 ![Image of correct Github plugin](images/computational-setup/github_plugin.png)
+
 6. Search for "Jupyter." Select the one that is just called "Jupyter" and has >5 million downloads, and click "install."
 7. Enable autoformatting. Click the "hamburger" icon (top left,  three horiontal lines)in VS Code -> File -> Preferences -> Settings -> search format -> change Editor: Default Formatter to Black Formatter -> check the box next to  Editor: Format on Save
    
