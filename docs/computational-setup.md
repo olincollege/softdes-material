@@ -27,6 +27,9 @@ Please follow the ["Olin/UNITY Onboarding Instructions"](https://docs.google.com
 7. *(Optional)* We have a class reservation to use a portion of the Unity cores during Tuesday and Friday class times. This should work automatically (they are "magnetic") but you can also specify them in "Extra Arguments for Slurm" as `--reservation=softdes26_t` (for Tuesday) and `--reservation=softdes26_f` (for Friday). If you access Unity not in class hours, you might have to wait a minute or two before the session starts.
 8. *(Optional)* It's okay to ignore the other arguments for now. If you want to learn about them and change them as desired, check out these help pages: [Slurm Documentation](https://docs.unity.rc.umass.edu/documentation/jobs/slurm/) and/or [HPC Theory](https://docs.unity.rc.umass.edu/documentation/get-started/hpc-theory/threads-cores-processes-sockets/)
 
+Click the `Launch` button and wait as the supercomputer to processes your request. When your instance is ready, press the blue `Connect to VS Code` button at the bottom of the created box to open VS Code.
+![Unity VS Code instance](images/computational-setup/unity_vscode_instance.png)
+
 ## Configure VS Code
 
 Now we're going to add a couple of bells and whistles to VS Code. You should only have to do this once.
