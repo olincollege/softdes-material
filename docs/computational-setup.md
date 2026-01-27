@@ -62,6 +62,8 @@ Although the course readings have details on GitHub, Unity also has an overview 
    ![Terminal](images/computational-setup/terminal.png)
 
     Other options include going to the top right menu → Terminal → New terminal, or the keyboard shortcuts `Ctrl+Shift+C` and `` Ctrl+Shift+` ``
+    Learning to use the terminal is an important skill in computing, and you will learn more about the basics in Reading 0. For now, all you need to know is that we can type *commands* into the terminal, and run these by pressing enter.
+
 4. Making sure the terminal is selected, move to the SoftDes working directory by typing the following command and pressing enter:
 ```
 cd /work/pi_softdes26_olin_edu/
