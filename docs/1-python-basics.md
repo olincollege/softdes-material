@@ -1,3 +1,8 @@
+---
+title: Reading 1
+nav_order: 4
+layout: default
+---
 # Reading 1: Python Basics
 
 In this chapter, you will learn about the basics of writing code in Python. Even with the small amount of Python you learn here, you should be able to write short programs that will run on your computer.
