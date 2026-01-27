@@ -87,12 +87,11 @@ Throughout this course, you will be working with a tool called Jupyter. Jupyter 
 
 For that reason, we have you install Quarto, an open-source publishing system. Quarto has a file format called qmd (Quarto Markdown), which we use as an intermediate format for managing Jupyter notebooks.
 
-1. Check which directory you are in by typing `pwd` into the terminal. If the result is not `/work/pi_softdes26_olin_edu/[yourdirectory]` type `cd /work/pi_softdes26_olin_edu/[yourdirectory]` to move to the directory. We always want to be working in this directory!
+1. Check which directory you are in by running the `pwd` command in the terminal. If the result is not `/work/pi_softdes26_olin_edu/[yourdirectory]` run the command `cd /work/pi_softdes26_olin_edu/[yourdirectory]` to move to the directory. We always want to be working in this directory!
 2. Go to the command palette of VS Code, you can click on the gear icon in the bottom right corner and then "command palette" or hit F1.
 3. Type "Python: Select Interpreter" and select it when it pops up.
-4. Then select "Select interpreter path" and enter `/work/pi_softdes26_olin_edu/class_venv/bin/python3.12`
-5. This is a virtual environment created for the course.
-6. Test: you should be able to open the .qmd markdown files!
+4. Then select "Select interpreter path" and enter `/work/pi_softdes26_olin_edu/class_venv/bin/python3.12`. This allows you to use the virtual environment created for the course.
+5. To get these changes in your terminal, close and reopen it by using the trash can or X icon on the top right of the terminal.
 
 ## Setting Remotes
 
