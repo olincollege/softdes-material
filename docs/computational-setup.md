@@ -92,7 +92,7 @@ For that reason, we have you install Quarto, an open-source publishing system. Q
 2. Go to the command palette of VS Code, you can click on the gear icon in the bottom right corner and then "command palette" or hit F1.
 3. Type "Python: Select Interpreter" and select it when it pops up.
 4. Then select "Select interpreter path" and enter `/work/pi_softdes26_olin_edu/class_venv/bin/python3.12`. This allows you to use the virtual environment created for the course.
-5. To get these changes in your terminal, close and reopen it by using the trash can or X icon on the top right of the terminal.
+5. To get these changes in your terminal, close and reopen it by using the trash can on the top right of the terminal.
 
 ## Setting Remotes
 
