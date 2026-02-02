@@ -14,10 +14,11 @@ Alternative setup instructions for non-supercomputer users.
         -   [Context](#context)
         -   [Directions](#directions)
         -   [Check](#check)
-- [Install Python/Anaconda](#install-pythonanaconda)
+- [Install Python](#install-python)
     -   [Context](#context-1)
-    -   [Directions](#directions-1)
-    -   [Check](#check-1)
+    -   [Directions(Anaconda)](#directions-1-1)
+    -   [Directions(uv)](#directions-1-2)
+    <!-- -   [Check](#check-1) -->
 - [Install Quarto](#install-quarto)
     -   [Context](#context-2)
     -   [Directions](#directions-2)
@@ -58,6 +59,8 @@ We have split each step into a _Context_ section that explains what you are doin
 The setup has quite a few steps and may appear daunting at first. We ask that you try to follow these instructions as closely as you can, because we have done quite a bit of testing with these instructions and have confirmed that they work reasonably well for most student setups. If you run into any issues, please checkout the [troubleshooting](#troubleshooting) section, which has solutions for common issues. If you need our help, it will be very helpful for us to know if and how you did anything differently from what these instructions specify. We are happy to provide help if you get stuck, so please do not hesitate to ask!
 
 ## Windows [#](#windows)
+
+If you are on Linux or macOS, you may skip this section.
 
 ### Install and Configure Windows Subsystem for Linux (WSL) [#](#install-and-configure-windows-subsystem-for-linux-wsl)
 
@@ -115,13 +118,18 @@ PING olin.edu (54.225.220.247) 56(84) bytes of data.
 
 A new line will appear around once every second. You should be able to stop this program by pressing Ctrl-C. (When running commands this way, Ctrl-C stops the current program instead of copying to the clipboard, as you might be used to.)
 
-## Install Python/Anaconda [#](#install-pythonanaconda)
+## Install Python [#](#install-python)
 
 ### Context [#](#context-1)
 
-Because virtually all code for this course will be written in Python, you will need to have the Python programming language installed on your computer. The officially supported way to install Python in this course is with Anaconda, which is a bundle of software that includes the Python programming language, a collection of useful additional libraries for data science, and some helpful support tools. If you know what you are doing, you are free to look up and use a different installation approach, but if something goes wrong, it is unlikely that we can provide support. If you go the Anaconda route, you should install the Individual edition, which is free to download and use.
+Because virtually all code for this course will be written in Python, you will need to have the Python programming language installed on your computer. 
+The privous way to install Python in this course is with Anaconda, which is a bundle of software that includes the Python programming language, a collection of useful additional libraries for data science, and some helpful support tools. If you go the Anaconda route, you should install the Individual edition, which is free to download and use.
 
-### Directions [#](#directions-1)
+The writer of this section (Evi) has also had a good experience with [uv](https://docs.astral.sh/uv/), an "extremely fast Python package and project manager". uv can replace `pip` and `poetry`, can manage different python versions, and manages virtual environments for you. It additionally supports hard linking of dependencies to reduce duplication across projects, as well as many other features. However, unlike Anaconda, uv does not come with packages preinstalled, so you may have to determine which ones to install yourself. 
+
+If you know what you are doing, you are free to look up and use a different installation approach, but if something goes wrong, it is unlikely that we can provide support.
+
+### Anaconda Directions [#](#directions-1-1)
 
 These directions are adapted from the official [Anaconda Linux installation instructions](https://docs.anaconda.com/anaconda/install/linux/). If something goes wrong with the installation process, we recommend that you check there for a fix before asking for help.
 
@@ -147,7 +155,7 @@ The installation may take a while. Please be patient.
 
 The installer will then ask if you want to initialize Anaconda. Answer yes to this question, as it sets up your Ubuntu installation to use Anaconda’s version of Python by default.
 
-### Check [#](#check-1)
+<!-- ### Check Anaconda [#](#check-1) -->
 
 To test if the installation succeeded, close Ubuntu if it is already running, then launch Ubuntu. If the installation was successful, you should see a prompt that starts with `(base)` after any welcome message that is shown.
 
@@ -155,6 +163,27 @@ To test if the installation succeeded, close Ubuntu if it is already running, th
 Anaconda](/anaconda_base_prompt.png)
 
 If you don’t see `(base)`, try typing `conda` and pressing Enter. If you see something like `conda: command not found`, then the installation did not complete successfully. You should be able to try the installation instructions again. If you instead see output that starts with `usage: conda [-h] [-V] command ...`, then you may not have answered “yes” to having the installer initialize Anaconda. In this case, you should be able to run `conda init`, and then close and re-launch Ubuntu.
+
+### uv Directions [#](#directions-1-2)
+
+Installation instructions for uv can be found on their [installation page](https://docs.astral.sh/uv/getting-started/installation/).
+
+For WSL and Ubuntu users, use any command in the `Standalone installer` section (just one, not all of them).
+
+If you happen to be using Arch, Nix, or Fedora, uv can be found in their respective package managers.
+
+To test if the installation succeeded, close and reopen your terminal, then run `uv --version`. You should receive an output with `uv` and the current version.
+
+#### uv Basics [#](#uv-basics)
+to be written
+
+- `uv python install`
+- `uv init <project>` and `uv init`
+- `uv add <package>` and `uv remove`
+- `uv run <file>`
+- `uv venv` (not needed with `uv run`)
+
+
 
 ## Install Quarto [#](#install-quarto)
 
@@ -396,7 +425,7 @@ If it is still not working, contact a course assistant.
     *   [Context](#context)
     *   [Directions](#directions)
     *   [Check](#check)
-*   [Install Python/Anaconda](#install-pythonanaconda)
+*   [Install Python/Anaconda](#install-python)
     *   [Context](#context-1)
     *   [Directions](#directions-1)
     *   [Check](#check-1)
