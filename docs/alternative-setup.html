@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Alternative Setup</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="alternative-setup_files/libs/clipboard/clipboard.min.js"></script>
+<script src="alternative-setup_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="alternative-setup_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="alternative-setup_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="alternative-setup_files/libs/quarto-html/popper.min.js"></script>
+<script src="alternative-setup_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="alternative-setup_files/libs/quarto-html/anchor.min.js"></script>
+<link href="alternative-setup_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="alternative-setup_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="alternative-setup_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="alternative-setup_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="alternative-setup_files/libs/bootstrap/bootstrap-2616d5411308a5b3a7cfb60ac5b0051c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Alternative Setup</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Alternative setup instructions for non-supercomputer users.</p>
+<p><strong>A majority of these instructions were written for Windows 11.</strong> This was the only supported operating system in prior iterations of the course, and therefore has the most documentation. If you are using macOS or Linux we will help you to the best of our ability, but ultimately we can’t guarantee that we can help you fix your issue, and you will be responsible for getting to a correct setup.</p>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#windows">Windows</a>
+<ul>
+<li><a href="#install-and-configure-windows-subsystem-for-linux-wsl">Install and Configure Windows Subsystem for Linux (WSL)</a>
+<ul>
+<li><a href="#context">Context</a></li>
+<li><a href="#directions">Directions</a></li>
+<li><a href="#check">Check</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#install-pythonanaconda">Install Python/Anaconda</a>
+<ul>
+<li><a href="#context-1">Context</a></li>
+<li><a href="#directions-1">Directions</a></li>
+<li><a href="#check-1">Check</a></li>
+</ul></li>
+<li><a href="#install-quarto">Install Quarto</a>
+<ul>
+<li><a href="#context-2">Context</a></li>
+<li><a href="#directions-2">Directions</a></li>
+<li><a href="#check-2">Check</a></li>
+</ul></li>
+<li><a href="#install-vs-code">Install VS Code</a>
+<ul>
+<li><a href="#context-3">Context</a></li>
+<li><a href="#directions-3">Directions</a></li>
+<li><a href="#check-3">Check</a></li>
+</ul></li>
+<li><a href="#configure-vs-code">Configure VS Code</a>
+<ul>
+<li><a href="#context-4">Context</a></li>
+<li><a href="#directions-4">Directions</a></li>
+<li><a href="#check-4">Check</a></li>
+</ul></li>
+<li><a href="#create-a-github-account">Create a GitHub account</a>
+<ul>
+<li><a href="#context-5">Context</a></li>
+<li><a href="#directions-5">Directions</a></li>
+<li><a href="#check-5">Check</a></li>
+</ul></li>
+<li><a href="#configure-git">Configure Git</a>
+<ul>
+<li><a href="#context-6">Context</a></li>
+<li><a href="#directions-6">Directions</a></li>
+<li><a href="#check-6">Check</a></li>
+</ul></li>
+<li><a href="#add-an-ssh-key-to-github">Add an SSH key to GitHub</a>
+<ul>
+<li><a href="#context-7">Context</a></li>
+<li><a href="#directions-7">Directions</a></li>
+<li><a href="#check-7">Check</a></li>
+</ul></li>
+<li><a href="#end">End</a></li>
+<li><a href="#bonus">Bonus</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a>
+<ul>
+<li><a href="#no-network-access-in-ubuntu">No Network Access in Ubuntu</a></li>
+<li><a href="#vs-code-complains-it-cannot-use-the-python-extension">VS Code Complains It Cannot Use the Python Extension</a></li>
+<li><a href="#gwsl-does-not-work-python--m-pygameexamplesaliens">GWSL Does Not Work (<code>python -m pygame.examples.aliens</code>)</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="computational-setup" class="level1">
+<h1>Computational Setup <a href="#computational-setup">#</a></h1>
+<p>This guide walks you through the steps necessary to set up your computer for the work you will do in this course. Once you have completed this setup, you should have all of the software tools you need to complete the worksheets and projects in this course.</p>
+<p>We have split each step into a <em>Context</em> section that explains what you are doing and why, a <em>Directions</em> section that explains what to do, and a <em>Check</em> section with instructions for you to test that you have completed the step successfully. Reading the <em>Context</em> section is optional - it simply explains why you are doing each step.</p>
+<p>The setup has quite a few steps and may appear daunting at first. We ask that you try to follow these instructions as closely as you can, because we have done quite a bit of testing with these instructions and have confirmed that they work reasonably well for most student setups. If you run into any issues, please checkout the <a href="#troubleshooting">troubleshooting</a> section, which has solutions for common issues. If you need our help, it will be very helpful for us to know if and how you did anything differently from what these instructions specify. We are happy to provide help if you get stuck, so please do not hesitate to ask!</p>
+<section id="windows" class="level2">
+<h2 class="anchored" data-anchor-id="windows">Windows <a href="#windows">#</a></h2>
+<section id="install-and-configure-windows-subsystem-for-linux-wsl" class="level3">
+<h3 class="anchored" data-anchor-id="install-and-configure-windows-subsystem-for-linux-wsl">Install and Configure Windows Subsystem for Linux (WSL) <a href="#install-and-configure-windows-subsystem-for-linux-wsl">#</a></h3>
+<section id="context" class="level4">
+<h4 class="anchored" data-anchor-id="context">Context <a href="#context">#</a></h4>
+<p>Most previous iterations of this course were taught in Ubuntu Linux (<a href="https://ubuntu.com/">website</a>), and many subsequent computing courses are taught in a Linux environment. Because of this, much of our actual coding work will take place in an approximation of an Ubuntu system <em>within</em> your Windows operating system. <em>Windows Subsystem for Linux (WSL)</em> provides the infrastructure needed to install and run Ubuntu on Windows. In this step, you will install and configure both WSL and Ubuntu.</p>
+</section>
+<section id="directions" class="level4">
+<h4 class="anchored" data-anchor-id="directions">Directions <a href="#directions">#</a></h4>
+<p>First, you need to install WSL on your system. You can then install the appropriate version of Ubuntu for this course.</p>
+<section id="install-wsl" class="level5">
+<h5 class="anchored" data-anchor-id="install-wsl">Install WSL <a href="#install-wsl">#</a></h5>
+<p>From the Start menu, open PowerShell <strong>as an administrator</strong>, as shown in red below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./powershell_admin_launcher.png" class="img-fluid figure-img"></p>
+<figcaption>Option to launch PowerShell as an administrator</figcaption>
+</figure>
+</div>
+<p>A prompt may appear on screen - if it does, click Yes to move on.</p>
+<p>This should open a window that looks like what you see below. Make sure that “Administrator” is shown in the window title (in red below):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./powershell_admin_window.png" class="img-fluid figure-img"></p>
+<figcaption>PowerShell window in administrator mode</figcaption>
+</figure>
+</div>
+<p>In this window, type <code>wsl --install</code> and run the command by pressing Enter. You may get another prompt, and you can click Yes to move on again.</p>
+<p>Sometimes, the process can fail, in which case you should try running the command again. Make sure that what you see at the end of running this command shows that it was successful (in green below) rather than that something failed or was denied (in red below).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./wsl_install_status.png" class="img-fluid figure-img"></p>
+<figcaption>Failed and successful results of installing WSL</figcaption>
+</figure>
+</div>
+<p>Once this is done, restart your machine.</p>
+</section>
+<section id="set-up-the-ubuntu-user" class="level5">
+<h5 class="anchored" data-anchor-id="set-up-the-ubuntu-user">Set up the Ubuntu user <a href="#set-up-the-ubuntu-user">#</a></h5>
+<p>If everything has gone well, you should be able to select and launch the Ubuntu app from your Start menu. The first launch may take a bit of time to start up.</p>
+<p>When you first launch Ubuntu, you will be prompted to create a new username and password, which is used to run administrative commands on Ubuntu. <strong>Do not close this window before you have completed this process, because it can break your setup.</strong></p>
+<p>The username and password can be whatever you’d like, but be sure to remember your password as you’ll need it throughout the course. <strong>When you are typing your password, nothing will be shown - not even dots/symbols for each character you type</strong> (shown in red below). You’ll need to type the same password twice to avoid getting locked out by a typo.</p>
+<p>These do not have to match what you use for Windows, and can be whatever you’d like. Note that when you are entering your password, the text you enter will not be shown, but you will be asked for your password twice to avoid typos.</p>
+<p>You may also see a firewall warning when first starting Ubuntu. Allowing connections with the default configuration (on private networks only) is fine.</p>
+</section>
+</section>
+<section id="check" class="level4">
+<h4 class="anchored" data-anchor-id="check">Check <a href="#check">#</a></h4>
+<p>To test that everything works, launch Ubuntu. You should see a line ending in <code>$</code> with a blinking cursor after it, and you should be able to type text. Try typing <code>ping olin.edu</code> and pressing Enter. You should see lines that look like this:</p>
+<pre><code>PING olin.edu (54.225.220.247) 56(84) bytes of data.
+64 bytes from ec2-54-225-220-247.compute-1.amazonaws.com (54.225.220.247): icmp_seq=1 ttl=127 time=17.3 ms
+64 bytes from ec2-54-225-220-247.compute-1.amazonaws.com (54.225.220.247): icmp_seq=2 ttl=127 time=22.8 ms
+64 bytes from ec2-54-225-220-247.compute-1.amazonaws.com (54.225.220.247): icmp_seq=3 ttl=127 time=22.0 ms</code></pre>
+<p>A new line will appear around once every second. You should be able to stop this program by pressing Ctrl-C. (When running commands this way, Ctrl-C stops the current program instead of copying to the clipboard, as you might be used to.)</p>
+</section>
+</section>
+</section>
+<section id="install-pythonanaconda" class="level2">
+<h2 class="anchored" data-anchor-id="install-pythonanaconda">Install Python/Anaconda <a href="#install-pythonanaconda">#</a></h2>
+<section id="context-1" class="level3">
+<h3 class="anchored" data-anchor-id="context-1">Context <a href="#context-1">#</a></h3>
+<p>Because virtually all code for this course will be written in Python, you will need to have the Python programming language installed on your computer. The officially supported way to install Python in this course is with Anaconda, which is a bundle of software that includes the Python programming language, a collection of useful additional libraries for data science, and some helpful support tools. If you know what you are doing, you are free to look up and use a different installation approach, but if something goes wrong, it is unlikely that we can provide support. If you go the Anaconda route, you should install the Individual edition, which is free to download and use.</p>
+</section>
+<section id="directions-1" class="level3">
+<h3 class="anchored" data-anchor-id="directions-1">Directions <a href="#directions-1">#</a></h3>
+<p>These directions are adapted from the official <a href="https://docs.anaconda.com/anaconda/install/linux/">Anaconda Linux installation instructions</a>. If something goes wrong with the installation process, we recommend that you check there for a fix before asking for help.</p>
+<p>Head to Anaconda’s <a href="https://www.anaconda.com/products/individual">downloads page</a>. Do NOT click the big button at the top of the page that says “Windows”. Instead, scroll to the bottom of the page located the section titled “Anaconda Installers”. Under the “Linux” column in this section, locate the link for the “64-Bit (x86) Installer” with the latest Python version available. <strong>Right click</strong> this link and <strong>copy the link location</strong>. <strong>Do not download this file normally.</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./anaconda_download_page.png" class="img-fluid figure-img"></p>
+<figcaption>Screenshot of Anaconda downloads page with correct link circled</figcaption>
+</figure>
+</div>
+<p>Now launch Ubuntu app on your machine. Once Ubuntu has started, you should be able to type in the window. Type <code>wget</code> into the window (note the space at the after <code>wget</code>), then right-click in the window to paste the URL that you copied earlier. Press Enter to run the command. You should see a dialog in the window as the file downloads. Look for a message that says something like <code>'Anaconda3-20XX.YY-Linux-x86_64.sh' saved</code>.</p>
+<p>Once you have downloaded the file, type <code>bash Anaconda</code> (note there is no space at the end) and press Tab. You should see this autocomplete to the name of the file you downloaded earlier. If all has gone well, your prompt should look like the following screenshot:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./download_install_anaconda.png" class="img-fluid figure-img"></p>
+<figcaption>Screenshot of downloading and installing Anaconda in WSL</figcaption>
+</figure>
+</div>
+<p>Press Enter to run the command, which will start the installer.</p>
+<p>You will be prompted to review the license agreement. Press Enter to view the agreement. The agreement text will likely not fit in your window; <strong>you can press Space to move forward one page</strong> until you reach the end. At the end of the agreement, you will be prompted to type <code>yes</code> or <code>no</code> based on whether you accept the agreement. If you do not want to agree, contact the teaching team and we can help you with an alternate, non-Anaconda installation process.</p>
+<p>If you choose to proceed, you will be prompted with a default installation location. This location is fine, and you can accept it simply by pressing Enter. Otherwise, you can specify a new location or press Ctrl-C to abort the installation.</p>
+<p>The installation may take a while. Please be patient.</p>
+<p>The installer will then ask if you want to initialize Anaconda. Answer yes to this question, as it sets up your Ubuntu installation to use Anaconda’s version of Python by default.</p>
+</section>
+<section id="check-1" class="level3">
+<h3 class="anchored" data-anchor-id="check-1">Check <a href="#check-1">#</a></h3>
+<p>To test if the installation succeeded, close Ubuntu if it is already running, then launch Ubuntu. If the installation was successful, you should see a prompt that starts with <code>(base)</code> after any welcome message that is shown.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./anaconda_base_prompt.png" class="img-fluid figure-img"></p>
+<figcaption>Screenshot of (base) prompt after installing Anaconda</figcaption>
+</figure>
+</div>
+<p>If you don’t see <code>(base)</code>, try typing <code>conda</code> and pressing Enter. If you see something like <code>conda: command not found</code>, then the installation did not complete successfully. You should be able to try the installation instructions again. If you instead see output that starts with <code>usage: conda [-h] [-V] command ...</code>, then you may not have answered “yes” to having the installer initialize Anaconda. In this case, you should be able to run <code>conda init</code>, and then close and re-launch Ubuntu.</p>
+</section>
+</section>
+<section id="install-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="install-quarto">Install Quarto <a href="#install-quarto">#</a></h2>
+<section id="context-2" class="level3">
+<h3 class="anchored" data-anchor-id="context-2">Context <a href="#context-2">#</a></h3>
+<p>Throughout this course, you will be working with a tool called <a href="https://jupyter.org/">Jupyter</a>. Jupyter notebooks are neat and interactive way to integrate text and code together, popular in data science. Unfortunately, the <code>ipynb</code> (Interactive PYthon NoteBook) format is notoriously difficult to work with in version control systems such as <a href="https://git-scm.com/">git</a>, another tool you will use in this course.</p>
+<p>For that reason, we have you install <a href="https://quarto.org/">Quarto</a>, an open source publishing system. Quarto has a file format called <code>qmd</code> (Quarto Markdown), which we use as an intermediate format for managing Jupyter notebooks.</p>
+</section>
+<section id="directions-2" class="level3">
+<h3 class="anchored" data-anchor-id="directions-2">Directions <a href="#directions-2">#</a></h3>
+<p>Navigate to the Quarto <a href="https://quarto.org/docs/get-started/">Getting Started</a> page and find the download link for the <strong>Linux</strong> (not Windows) version. It should look something like <code>quarto-X.X.XXX-linux-amd64.deb</code>. Right click this and select <code>copy link</code> or <code>copy link address</code> depending on your browser.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./quarto_download.png" class="img-fluid figure-img"></p>
+<figcaption>Quarto download page</figcaption>
+</figure>
+</div>
+<p>In a WSL window, type at the prompt <code>wget</code> (note the space after <code>wget</code>) and right click to paste the URL you copied earlier. This will look something like:</p>
+<pre><code>wget https://github.com/quarto-dev/quarto-cli/releases/download/vX.X.XXX/quarto-X.X.XXX-linux-amd64.deb</code></pre>
+<p>Run this command by pressing Enter. You should see it download. Once the download is finished, type <code>sudo apt install ./q</code> and press tab. It should auto complete to the Quarto file you just downloaded. Press Enter to run this command. It will prompt you for a password. This is the Linux password you setup earlier; it is not necessarily the same as your Windows password.</p>
+</section>
+<section id="check-2" class="level3">
+<h3 class="anchored" data-anchor-id="check-2">Check <a href="#check-2">#</a></h3>
+<p>To test that Quarto installed successfully, run the following command in your WSL window:</p>
+<pre><code>quarto -h</code></pre>
+<p>If all is good, Quarto should print out a help message. If instead you see:</p>
+<pre><code>quarto: command not found</code></pre>
+<p>Try starting again from the Quarto instructions. If that does not work, see a CA.</p>
+</section>
+</section>
+<section id="install-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="install-vs-code">Install VS Code <a href="#install-vs-code">#</a></h2>
+<section id="context-3" class="level3">
+<h3 class="anchored" data-anchor-id="context-3">Context <a href="#context-3">#</a></h3>
+<p>It is possible to write Python code in a plain text editor, such as Notepad, but you will likely find that this is a rather tedious and difficult process because plain text editors have no knowledge of Python’s formatting or syntax. For this course, we will use a code editor called Visual Studio Code (often called VS Code). We recommend this editor because it is widely used, free, and able to run on Windows, Mac, and Linux.</p>
+</section>
+<section id="directions-3" class="level3">
+<h3 class="anchored" data-anchor-id="directions-3">Directions <a href="#directions-3">#</a></h3>
+<p>Go to the <a href="https://code.visualstudio.com/download">VS Code Download page</a> and click the Windows button to download the installer. (By default, this will download the 64-bit User Installer whose link is just below the download button.) Run the installer, using all of the default options. Most importantly, make sure that “Add to PATH” remains checked. (You can uncheck “Launch Visual Studio Code” at the end of the install process, as you should have the other components installed before configuring it.)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./vscode_add_to_path.png" class="img-fluid figure-img"></p>
+<figcaption>Make sure Add to PATH stays checked</figcaption>
+</figure>
+</div>
+</section>
+<section id="check-3" class="level3">
+<h3 class="anchored" data-anchor-id="check-3">Check <a href="#check-3">#</a></h3>
+<p>To test that you have installed VS Code correctly, you only need to make sure that it launches for now.</p>
+</section>
+</section>
+<section id="configure-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="configure-vs-code">Configure VS Code <a href="#configure-vs-code">#</a></h2>
+<section id="context-4" class="level3">
+<h3 class="anchored" data-anchor-id="context-4">Context <a href="#context-4">#</a></h3>
+<p>While you can run VS Code from the Start menu as you would with any other program, there are some oddities about the way it works with Anaconda and WSL that will likely cause unintuitive issues if you run it this way. Because of this, you should configure VS Code to work with Anaconda’s version of Python and with WSL. You will do this by installing extensions for VS Code.</p>
+</section>
+<section id="directions-4" class="level3">
+<h3 class="anchored" data-anchor-id="directions-4">Directions <a href="#directions-4">#</a></h3>
+<p>Launch Ubuntu in GWSL by opening the GWSL app, selecting “Linux Shell”, and choosing your version of Ubuntu. Then run <code>code</code> (type it in and press Enter). The first time you run this command, it will do some setup on WSL, so it may take awhile.</p>
+<p>If you just installed VS Code and you see <code>code: command not found</code>, restart WSL by opening the GWSL menu and navigating to <code>GWSL Distro Tools -&gt; Reboot Ubuntu</code>.</p>
+<section id="install-remote-wsl-extension" class="level4">
+<h4 class="anchored" data-anchor-id="install-remote-wsl-extension">Install Remote WSL Extension <a href="#install-remote-wsl-extension">#</a></h4>
+<p>Once it has started, you will need to install the Remote WSL extension. Navigate to the extensions menu via <code>File -&gt; Preferences -&gt; Extensions</code> or by pressing Ctrl-Shift-X. Then search for and install the extension “Remote - WSL”. If you already installed the “Remote - WSL” extension when opening VS Code earlier, you do not need to do so again.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./vscode_install_remote_wsl.png" class="img-fluid figure-img"></p>
+<figcaption>Install Remote - WSL extension in Code</figcaption>
+</figure>
+</div>
+<p>After installing the Remote WSL extension, you should see a small green box in the bottom left corner of VS Code. Click this green box. It will open a menu in the top of VS Code. Select the option which says <code>New WSL Window</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./vscode_new_wsl_window.png" class="img-fluid figure-img"></p>
+<figcaption>Open a new WSL Window in VS Code</figcaption>
+</figure>
+</div>
+<p>A new VS Code window should open. In the bottom left, the little green box should now say <code>WSL: Ubuntu</code>.</p>
+</section>
+<section id="install-python-extension-inside-vs-code-remote" class="level4">
+<h4 class="anchored" data-anchor-id="install-python-extension-inside-vs-code-remote">Install Python Extension Inside VS Code Remote <a href="#install-python-extension-inside-vs-code-remote">#</a></h4>
+<p>Now you need to install the Python extension for VS Code. Inside your VS Code window (the one which says <code>WSL: Ubuntu</code> in the bottom left), navigate to the extensions menu via <code>File -&gt; Preferences -&gt; Extensions</code> or by pressing Ctrl-Shift-X. Search for the Python extension. Click the button which says <code>Install in WSL: Ubuntu</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./vscode_install_python_in_wsl.png" class="img-fluid figure-img"></p>
+<figcaption>Install Python extension in VS Code</figcaption>
+</figure>
+</div>
+</section>
+<section id="set-up-automatic-formatting" class="level4">
+<h4 class="anchored" data-anchor-id="set-up-automatic-formatting">Set Up Automatic Formatting <a href="#set-up-automatic-formatting">#</a></h4>
+<p>In assignment 0, you will learn about autoformatting code and be introduced to a tool called autopep8 which helps standardize various conventions, especially those revolving around whitespace usage in code.</p>
+<p>You can set up VSCode to automatically run the <code>autopep8</code> command (or automatic formatter) each time that you save a file; this will ensure that you no longer have to run it manually prior to submission, reducing the chances of forgetting to do so before submission.</p>
+<ol type="1">
+<li>Click on the settings gear in the bottom left of the VSCode window &amp; navigate to settings (alternatively, hitting Ctrl+, will work).</li>
+<li>Search for <code>autopep8</code>.</li>
+<li>Under the option that says Python &gt; Formatting: Provider, select autopep8. <img src="./set_formatting_to_autopep8.png" class="img-fluid" alt="Set Formatting to Autopep8"></li>
+<li>Search for “format and save”.</li>
+<li>Check the box that says “Editor: Format on Save”. <img src="./enable_autoformat_on_save.png" class="img-fluid" alt="Enable Autoformat on Save"></li>
+</ol>
+<section id="pylint-checker" class="level5">
+<h5 class="anchored" data-anchor-id="pylint-checker">Pylint Checker <a href="#pylint-checker">#</a></h5>
+<p>You will also learn about using a tool called <code>pylint</code> in order to check for additional style conventions like variable naming convention.</p>
+<p>While VSCode cannot automatically fix a majority of these issues, you can set it up to mark what lines do not match expected pylint guidelines; it is still highly encouraged to run the pylint command on all of your files before submission, even if you have this set up.</p>
+<ol type="1">
+<li>Hit Ctrl+Shift+P to bring up the Command Palette.</li>
+<li>Type “Python: Select Linter” into the textbox that is brought up.</li>
+<li>Select pylint from the dropdown of various linting conventions.. <img src="./pylint_checker.png" class="img-fluid" alt="Pylint Checker"></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="check-4" class="level3">
+<h3 class="anchored" data-anchor-id="check-4">Check <a href="#check-4">#</a></h3>
+<p>To check that you completed this step properly, launch VS Code if it is not already running by running the <code>code</code> command in Ubuntu. Once the VS Code window opens, make sure that the lower left corner shows a green box that says “WSL - Ubuntu”. If you do not see this, open the extensions menu as described above and make sure that the “Remote - WSL” extension shows as installed.</p>
+<p>Then, open a new file from the File menu or by pressing Ctrl-N. Then save the (blank) file from the File menu or by pressing Ctrl-S. You can save the file under any name as long as it ends in <code>.py</code>. Once you do this, you may see a message that says “Select Python interpreter” as a popup or by the green box that says “WSL - Ubuntu”. Choose the interpreter that ends in “(‘base’: conda)” and make sure that it appears in the lower left corner. If you do not see this prompt, make sure that the “Python” extension is installed.</p>
+</section>
+</section>
+<section id="create-a-github-account" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-github-account">Create a GitHub account <a href="#create-a-github-account">#</a></h2>
+<section id="context-5" class="level3">
+<h3 class="anchored" data-anchor-id="context-5">Context <a href="#context-5">#</a></h3>
+<p>In this course, we use a tool called Git, which is a system for managing versions of your code. To share your code with others, it’s helpful to use a hosting service that stores an online copy of your code and its history. (The copy does not necessarily have to be publicly accessible, though this is often the reason for hosting your code online.) For this purpose, we will use GitHub. In this step, you will create a GitHub account.</p>
+</section>
+<section id="directions-5" class="level3">
+<h3 class="anchored" data-anchor-id="directions-5">Directions <a href="#directions-5">#</a></h3>
+<p>If you don’t already have a GitHub account, go to <a href="https://github.com/">https://github.com</a> and create an account. Feel free to use any email address you want (or create one just for this account), but remember which email address you use, as you will need it when configuring Git on your computer (which is a later step in this guide). Your username does not have to be related to your actual name at all. That being said, like most usernames, it will be publicly visible, so if you plan on sharing code with the world, make sure you choose a username that you would be comfortable with others seeing.</p>
+</section>
+<section id="check-5" class="level3">
+<h3 class="anchored" data-anchor-id="check-5">Check <a href="#check-5">#</a></h3>
+<p>To test that you have correctly set up your GitHub account, go to <code>https://github.com/username</code>, replacing <code>username</code> with the username you created. You should see a profile page for your username. If you get a 404 page, you may not have completed the account creation process.</p>
+<p>You may also want to check that you can log into your account.</p>
+</section>
+</section>
+<section id="configure-git" class="level2">
+<h2 class="anchored" data-anchor-id="configure-git">Configure Git <a href="#configure-git">#</a></h2>
+<section id="context-6" class="level3">
+<h3 class="anchored" data-anchor-id="context-6">Context <a href="#context-6">#</a></h3>
+<p>In order for Git to operate properly, and to make sure that services like GitHub can attribute your work to your account, you need to configure Git with your name and email address.</p>
+<p>If you try to do other operations in Git without having set up your name and email, you will see a message that starts with something like <code>*** Please tell me who you are.</code> and whatever operation you were trying to do will fail.</p>
+<p>You also need to set up Git to use VS Code for some of its operations.</p>
+</section>
+<section id="directions-6" class="level3">
+<h3 class="anchored" data-anchor-id="directions-6">Directions <a href="#directions-6">#</a></h3>
+<p>To set your name in Git, start Ubuntu in GWSL by opening the GWSL app, selecting “Linux Shell”, and choosing your version of Ubuntu. As you have done previously, you can run commands by typing text into the prompt you see and pressing Enter. Run the command <code>git config --global user.name "Alan Turing"</code>, substituting your name for <code>Alan Turing</code> (but leaving the quotes in place). This can be any name you want, though you should probably avoid using a name that may be seen an attempt to impersonate someone else (e.g., “Bill Gates”).</p>
+<p>To set your email, run <code>git config --global user.email "alan@turing.org"</code>, substituting your GitHub email address for <code>alan@turing.org</code>. It’s important that your email match the one that GitHub has, because a mismatch can make Git fail in unintuitive ways.</p>
+<p>To set Git to use VS Code, run <code>git config --global core.editor "code --wait"</code>. Again, leave the quotes in place.</p>
+<p>If you mistyped anything in quotes (your name, email, or <code>code --wait</code>) you can run that command again with the correct name/email to fix the typo. If you mistyped <code>user.name</code>, <code>user.email</code>, or <code>core.editor</code> in the commands, you can use <code>git config --unset user.naem</code> (replacing <code>user.naem</code> with whatever you mistyped earlier) to remove that setting, and try again.</p>
+</section>
+<section id="check-6" class="level3">
+<h3 class="anchored" data-anchor-id="check-6">Check <a href="#check-6">#</a></h3>
+<p>You can check that this process was successful by running <code>git config --list</code>. If you see lines starting with <code>user.name</code>, <code>user.email</code>, and <code>config.editor</code> with the values you expect, then the process was successful. You may see other parts of your configuration, but you can ignore these.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./configure_git.png" class="img-fluid figure-img"></p>
+<figcaption>Configure git</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="add-an-ssh-key-to-github" class="level2">
+<h2 class="anchored" data-anchor-id="add-an-ssh-key-to-github">Add an SSH key to GitHub <a href="#add-an-ssh-key-to-github">#</a></h2>
+<section id="context-7" class="level3">
+<h3 class="anchored" data-anchor-id="context-7">Context <a href="#context-7">#</a></h3>
+<p>Sometimes, when interacting with code on GitHub (including your own), you need to authenticate yourself to GitHub. To do this, you will set up credentials on your computer in the form of an SSH (Secure SHell) key. The process consists of two steps: creating the key on your computer, and telling GitHub what this key is.</p>
+</section>
+<section id="directions-7" class="level3">
+<h3 class="anchored" data-anchor-id="directions-7">Directions <a href="#directions-7">#</a></h3>
+<p>To create the key, open Ubuntu in GWSL and run the command <code>ssh-keygen -t ecdsa</code>. You will be presented with a series of prompts; unless you know what changing these prompts will do, you should use the default settings (just hit Enter) for all of them. (In this case, it is fine to use a completely blank passphrase for this process.) This will create two files <code>id_ecdsa</code> and <code>id_ecdsa.pub</code>. <strong>Never share the contents of <code>id_ecdsa</code> with anyone.</strong> Doing so after you have added the key to GitHub will allow whomever you share the file with to authenticate to GitHub as you with no password necessary.</p>
+<p>To add the key to GitHub, log into your account on GitHub. Click on your profile picture in the upper-right corner of the page and select Settings. Click on “SSH and GPG keys”, and then click on the “New SSH key” button to get a form you can fill with the details of your key. For “Title”, use a name that will help you remember the computer that you are currently setting up.</p>
+<p>For “Key”, start Ubuntu in GWSL and run <code>cat .ssh/id_ecdsa.pub</code>. You can highlight this text and press Ctrl-C to copy the text. (If you have highlighted text in WSL, Ctrl-C will copy text to your clipboard instead of stopping a program.) then, paste the text into the field. When submitting this form, you will likely be asked to reconfirm your GitHub password.</p>
+</section>
+<section id="check-7" class="level3">
+<h3 class="anchored" data-anchor-id="check-7">Check <a href="#check-7">#</a></h3>
+<p>Open Ubuntu and run the following command:</p>
+<pre><code>ssh -T git@github.com</code></pre>
+<p>You may see a message that asks if you want to continue connecting. If you do, type <code>yes</code> and press Enter to continue.</p>
+<p>You should then see a message that says something like</p>
+<pre><code>Hi (user)! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
+<p>If instead you see <code>Permission denied (publickey).</code>, you should make sure that your SSH key was correctly pasted into GitHub earlier. If not, you can set up they key again on your GitHub account.</p>
+</section>
+</section>
+<section id="end" class="level2">
+<h2 class="anchored" data-anchor-id="end">End <a href="#end">#</a></h2>
+<p>Once you have done this, you should be properly set up to complete Assignment 0. In general, if you need to start VS Code in this course, you should do so by running <code>code</code> in Ubuntu, as it tends to avoid some oddities that can occasionally come up.</p>
+</section>
+<section id="bonus" class="level2">
+<h2 class="anchored" data-anchor-id="bonus">Bonus <a href="#bonus">#</a></h2>
+<p>Since you read all the way to the end of this page (or maybe you just skipped down using the table of contents, but whatever), here’s a fun Python-related XKCD:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://imgs.xkcd.com/comics/python_environment.png" class="img-fluid figure-img"></p>
+<figcaption>XKCD 1987: Python Environment</figcaption>
+</figure>
+</div>
+<p><em>Source</em>: <a href="https://xkcd.com/1987/">https://xkcd.com/1987/</a></p>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting <a href="#troubleshooting">#</a></h2>
+<section id="no-network-access-in-ubuntu" class="level3">
+<h3 class="anchored" data-anchor-id="no-network-access-in-ubuntu">No Network Access in Ubuntu <a href="#no-network-access-in-ubuntu">#</a></h3>
+<p>Examples of this occurring in the computational setup:</p>
+<ul>
+<li><code>ping olin.edu</code> does nothing</li>
+<li>Cannot download Anaconda/Quarto with <code>wget</code></li>
+</ul>
+<p>This is due to the firewall installed on your Olin laptop blocking network access to WSL. As of Spring 2022, Olin uses Symantec for its firewall. You can temporally disable Symantec. Press <code>Win-R</code> on your keyboard. A window called “run” will open in the bottom left. In the text box, type <code>smc -stop</code>. Windows will ask if you want Symantec to make changes to your device. Select <code>yes</code>. Symantec will be temporally disabled.</p>
+</section>
+<section id="vs-code-complains-it-cannot-use-the-python-extension" class="level3">
+<h3 class="anchored" data-anchor-id="vs-code-complains-it-cannot-use-the-python-extension">VS Code Complains It Cannot Use the Python Extension <a href="#vs-code-complains-it-cannot-use-the-python-extension">#</a></h3>
+<p>The WSL Remote extension creates multiple profiles for VS Code, one for Windows (local), and one for every version of Linux you have installed for WSL (remotes). What is most likely happening here is the Python extension is installed under the local profile. It needs to be installed in the remote profile to work.</p>
+<p>To fix this, open a VS Code window, make sure it says <code>WSL: Ubuntu</code> in the bottom left corner. If it does not say <code>WSL: Ubuntu</code> in the bottom left, click the little green square in the bottom left. A menu will open at the top of VS Code, select <code>New WSL Window</code>.</p>
+<p>In your WSL VS Code window, navigate to the extensions manager (<code>File -&gt; Preferences -&gt; Extensions</code> or press <code>Ctrl-Shift-X</code>) and install the Python extension. Now the Python extension should be installed in the WSL remote.</p>
+</section>
+<section id="gwsl-does-not-work-python--m-pygame.examples.aliens" class="level3">
+<h3 class="anchored" data-anchor-id="gwsl-does-not-work-python--m-pygame.examples.aliens">GWSL Does Not Work (<code>python -m pygame.examples.aliens</code>) <a href="#gwsl-does-not-work-python--m-pygameexamplesaliens">#</a></h3>
+<p>This is most likely an issue with Windows Defender’s firewall. For GWSL to work, you <a href="https://opticos.github.io/gwsl/tutorials/manual.html#installing-gwsl">MUST</a> give GWSL’s XServer and PulseAudio server access on public networks.</p>
+<p>To fix this, open the GWSL menu and select <code>about</code> (it’s located at the bottom right of the menu). You will see the following submenu:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./gwsl_about.png" class="img-fluid figure-img"></p>
+<figcaption>About GWSL menu</figcaption>
+</figure>
+</div>
+<p>In this menu, click on <code>Allow GWSL Through The Firewall</code>. Two windows will open: one is an informational blurb from GWSL, the other is a Windows Control Panel. You can close the blurb.</p>
+<p>In the Control Panel window, click the button which says <code>Change Settings</code>. Now scroll down until you find <code>GWSL PulseAudio Server</code> and <code>GWSL VcXsrv windows xserver HIDPI</code>. For these two items, make sure to check the boxes under Public. Click <code>Ok</code>. To test if it’s working, run <code>python -m pygame.examples.aliens</code> again.</p>
+<p>If it is still not working, contact a course assistant.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./gwsl_windows_defender.png" class="img-fluid figure-img"></p>
+<figcaption>Allow GWSL through the firewall</figcaption>
+</figure>
+</div>
+<p>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll(“pre code”).forEach(t=&gt;{t.addEventListener(“click”,function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&amp;&amp;navigator.clipboard.writeText(t.parentElement.textContent)})})})()</p>
+<ul>
+<li><a href="#install-and-configure-windows-subsystem-for-linux-wsl">Install and Configure Windows Subsystem for Linux (WSL)</a>
+<ul>
+<li><a href="#context">Context</a></li>
+<li><a href="#directions">Directions</a></li>
+<li><a href="#check">Check</a></li>
+</ul></li>
+<li><a href="#install-pythonanaconda">Install Python/Anaconda</a>
+<ul>
+<li><a href="#context-1">Context</a></li>
+<li><a href="#directions-1">Directions</a></li>
+<li><a href="#check-1">Check</a></li>
+</ul></li>
+<li><a href="#install-quarto">Install Quarto</a>
+<ul>
+<li><a href="#context-2">Context</a></li>
+<li><a href="#directions-2">Directions</a></li>
+<li><a href="#check-2">Check</a></li>
+</ul></li>
+<li><a href="#install-vs-code">Install VS Code</a>
+<ul>
+<li><a href="#context-3">Context</a></li>
+<li><a href="#directions-3">Directions</a></li>
+<li><a href="#check-3">Check</a></li>
+</ul></li>
+<li><a href="#configure-vs-code">Configure VS Code</a>
+<ul>
+<li><a href="#context-4">Context</a></li>
+<li><a href="#directions-4">Directions</a></li>
+<li><a href="#check-4">Check</a></li>
+</ul></li>
+<li><a href="#create-a-github-account">Create a GitHub account</a>
+<ul>
+<li><a href="#context-5">Context</a></li>
+<li><a href="#directions-5">Directions</a></li>
+<li><a href="#check-5">Check</a></li>
+</ul></li>
+<li><a href="#configure-git">Configure Git</a>
+<ul>
+<li><a href="#context-6">Context</a></li>
+<li><a href="#directions-6">Directions</a></li>
+<li><a href="#check-6">Check</a></li>
+</ul></li>
+<li><a href="#add-an-ssh-key-to-github">Add an SSH key to GitHub</a>
+<ul>
+<li><a href="#context-7">Context</a></li>
+<li><a href="#directions-7">Directions</a></li>
+<li><a href="#check-7">Check</a></li>
+</ul></li>
+<li><a href="#end">End</a></li>
+<li><a href="#bonus">Bonus</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a>
+<ul>
+<li><a href="#no-network-access-in-ubuntu">No Network Access in Ubuntu</a></li>
+<li><a href="#vs-code-complains-it-cannot-use-the-python-extension">VS Code Complains It Cannot Use the Python Extension</a></li>
+<li><a href="#gwsl-does-not-work-python--m-pygameexamplesaliens">GWSL Does Not Work (<code>python -m pygame.examples.aliens</code>)</a></li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
