@@ -1,5 +1,5 @@
 ---
-title: Reading 2
+title: Reading 2 - Sequences, Testing, & State
 nav_order: 5
 layout: default
 ---
