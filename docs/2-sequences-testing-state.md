@@ -3,17 +3,18 @@ title: Reading 2 - Sequences, Testing, & State
 nav_order: 5
 layout: default
 ---
+
 # Reading 2: Sequences, Testing, and Program State
 
-In this reading, you will learn about two new types: lists and ranges. We call these types *sequences* because they represent a collection of data arranged in a specific order. Sequences are particularly useful for another core feature of Python, called *loops*. Loops allow you to repeat blocks of code based on various conditions, and can be very useful in writing more complex functions and programs.
+In this reading, you will learn about two new types: lists and ranges. We call these types _sequences_ because they represent a collection of data arranged in a specific order. Sequences are particularly useful for another core feature of Python, called _loops_. Loops allow you to repeat blocks of code based on various conditions, and can be very useful in writing more complex functions and programs.
 
 You will also learn about unit testing, which can help you check that your code is working as expected. Well-written unit tests can also be beneficial before you write code, helping you to clarify your thoughts and expectations for the way that your code should behave in specific cases.
 
-Finally, you will learn about how to keep track of *program state*, which is essentially a snapshot of a program's behavior and data at a particular point in time. You will see how keeping track of program state can be helpful in debugging and fixing code that is not behaving as expected.
+Finally, you will learn about how to keep track of _program state_, which is essentially a snapshot of a program's behavior and data at a particular point in time. You will see how keeping track of program state can be helpful in debugging and fixing code that is not behaving as expected.
 
 ## Lists
 
-A *list* represents a sequence of items, that is, some number of items arranged in a specific order. You can define a list with square brackets (`[]`) and items separated by commas (`,`):
+A _list_ represents a sequence of items, that is, some number of items arranged in a specific order. You can define a list with square brackets (`[]`) and items separated by commas (`,`):
 
 ```python
 pi_digits = [3, 1, 4, 1, 5, 9]
@@ -35,7 +36,7 @@ Similar to the empty string, there is an empty list, which is a list that contai
 empty_list = []
 ```
 
-It is *somewhat* similar to the empty string - `len([])` is 0. But the empty list behaves differently with `in`, as you will see below.
+It is _somewhat_ similar to the empty string - `len([])` is 0. But the empty list behaves differently with `in`, as you will see below.
 
 ### List Operators
 
@@ -72,7 +73,7 @@ pi_digits[2:4]  # [4, 1]
 pi_digits[::-1]  # [9, 5, 1, 4, 1, 3]
 ```
 
-In contrast to strings, you can modify lists *in place*. This means that you can assign something to a specific element inside a list, like this:
+In contrast to strings, you can modify lists _in place_. This means that you can assign something to a specific element inside a list, like this:
 
 ```python
 passengers = ["Alice", "Bob", "Charlie", "David"]
@@ -140,11 +141,11 @@ pi_digits = [3, 1, 4, 1, 5, 9]
 sorted(pi_digits)  # [1, 1, 3, 4, 5, 9]
 ```
 
-You can do this with lists of any type, as long as they can be compared with `<`, `>`, and `==`. It's important to note that this creates a sorted *copy* of the original list, so in the example above, `pi_digits` is still `[3, 1, 4, 1, 5, 9]` even after running `sorted`.
+You can do this with lists of any type, as long as they can be compared with `<`, `>`, and `==`. It's important to note that this creates a sorted _copy_ of the original list, so in the example above, `pi_digits` is still `[3, 1, 4, 1, 5, 9]` even after running `sorted`.
 
 ### List Methods
 
-There are also special functions called *methods* that you can run on lists. We will cover more on methods later in this course, but for now, just remember that methods of the list class "belong" to a specific list and are thus called in a slightly different way from normal functions, as you will see below.
+There are also special functions called _methods_ that you can run on lists. We will cover more on methods later in this course, but for now, just remember that methods of the list class "belong" to a specific list and are thus called in a slightly different way from normal functions, as you will see below.
 
 Lists have a method very similar to `sorted` called `sort`. You can call it like this:
 
@@ -199,7 +200,7 @@ The `list` class has more methods, but we will not cover them here. If you want 
 
 ## Ranges
 
-Specifically ordered lists of integers, such as `[0, 1, 2, 3, 4]`, are sequences that are so common in Python that there is a special type designed to make these easy to create called *ranges*. You can define a range like by using two or three numbers very similarly to how you might slice a string:
+Specifically ordered lists of integers, such as `[0, 1, 2, 3, 4]`, are sequences that are so common in Python that there is a special type designed to make these easy to create called _ranges_. You can define a range like by using two or three numbers very similarly to how you might slice a string:
 
 ```python
 range(5)  # Essentially [0, 1, 2, 3, 4]
@@ -208,13 +209,13 @@ range(1, 6, 2)  # Essentially [1, 3, 5]
 range(5, 0, -1)  # Essentially [5, 4, 3, 2, 1]
 ```
 
-In the comments above, we say that a range is *essentially* a list. Ranges can be easily made into a list using type conversion, so `list(range(5))` actually returns the list `[0, 1, 2, 3, 4]`. But ranges are *not* lists, and many of the operators that work on lists do not work on ranges.
+In the comments above, we say that a range is _essentially_ a list. Ranges can be easily made into a list using type conversion, so `list(range(5))` actually returns the list `[0, 1, 2, 3, 4]`. But ranges are _not_ lists, and many of the operators that work on lists do not work on ranges.
 
 Ranges are useful not only because they save you from having to type long lists (imagine having to manually write out the list equivalent of `range(10000)`), but also because ranges store their data in a way that is much more memory-efficient than lists. Thus if you need to use a list of integers that can be defined as a range, you are generally encouraged to do so.
 
 ## `for` Loops
 
-*Loops* are a common feature of many widely-used programming languages. They are blocks of code that are written to repeat some number of times, or based on specific conditions. In Python, a `for` loop is a common type of loop that repeats a block of code once for each item in a sequence called an *iterable* (called this because you can iterate through its items). Among the types we have seen so far, strings, lists, and ranges are iterables.
+_Loops_ are a common feature of many widely-used programming languages. They are blocks of code that are written to repeat some number of times, or based on specific conditions. In Python, a `for` loop is a common type of loop that repeats a block of code once for each item in a sequence called an _iterable_ (called this because you can iterate through its items). Among the types we have seen so far, strings, lists, and ranges are iterables.
 
 Here is a simple `for` loop:
 
@@ -258,7 +259,7 @@ Finally, if you are iterating through a list, you should not modify that list in
 
 ## `while` Loops
 
-Sometimes, you may not know in advance how many times you need to repeat a certain block of code, so a `for` loop will not work. Instead, you may find it helpful to repeat a block of code as long as some condition is met. For this, you can use a `while` loop, which repeats a block of code *while* some expression is set to `True`.
+Sometimes, you may not know in advance how many times you need to repeat a certain block of code, so a `for` loop will not work. Instead, you may find it helpful to repeat a block of code as long as some condition is met. For this, you can use a `while` loop, which repeats a block of code _while_ some expression is set to `True`.
 
 Here is an example function that uses a `while` loop:
 
@@ -285,7 +286,7 @@ def greatest_common_divisor(a, b):
     return a
 ```
 
-This function implements [Euclid's algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm), for finding the greatest common divisor of two numbers. In this function, the line `while b != 0:` indicates that the following three lines execute for as long as `b` is not equal to 0. Whether `b` is 0 or not is checked at the *end* of each time through the block - in other words, if `b` is set to 0 during an iteration through the block, the following line (`a = temp`) runs one more time before moving on.
+This function implements [Euclid's algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm), for finding the greatest common divisor of two numbers. In this function, the line `while b != 0:` indicates that the following three lines execute for as long as `b` is not equal to 0. Whether `b` is 0 or not is checked at the _end_ of each time through the block - in other words, if `b` is set to 0 during an iteration through the block, the following line (`a = temp`) runs one more time before moving on.
 
 A `while` loop can be helpful in this context because just from looking at two numbers `a` and `b`, it isn't necessarily clear how many times the lines in the `while` loop have to be repeated before `b` becomes 0.
 
@@ -306,7 +307,7 @@ for character in sentence:
         break
 ```
 
-The `break` statement *immediately* exits the loop body, skipping the rest of the loop body as well as any remaining iterations. As this example shows, it is particularly useful if you want to run a block of code until you finish a `for` loop *or* satisfy some other condition. In this way, you can think of a `break` statement as allowing you to combine the features of a `for` and `while` loop.
+The `break` statement _immediately_ exits the loop body, skipping the rest of the loop body as well as any remaining iterations. As this example shows, it is particularly useful if you want to run a block of code until you finish a `for` loop _or_ satisfy some other condition. In this way, you can think of a `break` statement as allowing you to combine the features of a `for` and `while` loop.
 
 Related to this is the `continue` statement, which skips the rest of the loop body but instead of exiting the loop entirely, continues onto the next iteration. So for example, if you wanted to print the characters of a string on separate lines, ignoring spaces, you could do the following:
 
@@ -335,7 +336,7 @@ l
 
 ## Comprehensions
 
-*Comprehensions* are not data structures of their own, but rather ways to concisely express sequences (and a few other similar types that we will see later).
+_Comprehensions_ are not data structures of their own, but rather ways to concisely express sequences (and a few other similar types that we will see later).
 
 As an example, suppose you wanted to make a list of the squares of the numbers 0 through 99. You could do this with what you have seen so far in these readings:
 
@@ -418,7 +419,7 @@ In summary, remember to use `None` when you need a value that stands for nothing
 
 In the [previous reading](https://softdes.olin.edu/docs/readings/1-python-basics/#basic-types-and-operators), we saw how docstrings can be used to describe what a function does, what inputs it takes, and what it returns. However, it is important to also make sure that the function actually does what your docstring says it does. Testing the behavior of code in a systematic way allows you to provide evidence to others, and to yourself, that your code works in the way that you think it does.
 
-One way of doing this is to use *unit tests*, which are test programs designed to check that a small, specific piece of code (a "unit") behaves in a specific way. In this section, you will see a few techniques to how to think through unit tests, with some sample implementations. The sample code we use is written for use with the [Pytest](https://pytest.org) testing framework, which is a library for Python that allows you to write unit tests. The techniques we describe, however, can be applied in any mainstream testing framework.
+One way of doing this is to use _unit tests_, which are test programs designed to check that a small, specific piece of code (a "unit") behaves in a specific way. In this section, you will see a few techniques to how to think through unit tests, with some sample implementations. The sample code we use is written for use with the [Pytest](https://pytest.org) testing framework, which is a library for Python that allows you to write unit tests. The techniques we describe, however, can be applied in any mainstream testing framework.
 
 ### The Structure and Meaning of a Unit Test
 
@@ -442,7 +443,7 @@ This unit test function does not take any inputs or return anything. For now, if
 
 It is also worth noting what this unit test means. If a function fails a unit test, and the test has been written correctly, then you know with certainty that the function is behaving incorrectly.
 
-However, if this unit test passes, it does *not* necessarily mean that `max` is implemented correctly for all cases - it does not even mean that `max` is implemented correctly for lists of integers. In fact, the only thing that you can conclude with absolute certainty from this unit test is that `max` works as intended specifically for the list `[3, 1, 4, 1, 5, 9]`. So why are unit tests useful if they only tell us that a function works for a specific individual case?
+However, if this unit test passes, it does _not_ necessarily mean that `max` is implemented correctly for all cases - it does not even mean that `max` is implemented correctly for lists of integers. In fact, the only thing that you can conclude with absolute certainty from this unit test is that `max` works as intended specifically for the list `[3, 1, 4, 1, 5, 9]`. So why are unit tests useful if they only tell us that a function works for a specific individual case?
 
 By using a diverse range of unit test cases, you can gain more confidence that the function works as intended in general. For example, you could test that `max` works for lists of all negative numbers, lists where all numbers are the same, an empty list, and many more. Coming up with these tests may even help you think through your expectation of what a function should do in a specific condition - for example, should `max([])` crash with an error, and if not, what should it return?
 
@@ -499,13 +500,13 @@ def test_average_value_single_one():
     assert average_value([1]) == 1.0
 ```
 
-While looking at the implementation of `average_value` will probably give you the idea that the above test will cause the function to return an incorrect value, you can also write these tests without having written `average_value` at all. In fact, writing unit tests before the implementation is part of a software development methodology called *test-driven development*, and can be helpful in helping you to clarify your expectations of a function's behavior before you get into the weeds with implementation.
+While looking at the implementation of `average_value` will probably give you the idea that the above test will cause the function to return an incorrect value, you can also write these tests without having written `average_value` at all. In fact, writing unit tests before the implementation is part of a software development methodology called _test-driven development_, and can be helpful in helping you to clarify your expectations of a function's behavior before you get into the weeds with implementation.
 
 ### Running Unit Tests
 
 Typically, the way to run unit tests is to create a separate testing file. This helps you keep your code and tests separate, which makes your files more readable. Similarly to functions, your unit test files in Pytest should have names that start with `test_`. For example, if the `average_value` function above were in a file called `average.py`, the unit tests should be in a file called `test_average.py`.
 
-In your unit test file, you need to be able to access the functions that you defined. You can do this by *importing* the function into your file. Importing is a concept that we will see in more detail later, but in the example above, you could write the following line at the top of `test_average.py` (assuming that `average.py` and `test_average.py` are in the same directory):
+In your unit test file, you need to be able to access the functions that you defined. You can do this by _importing_ the function into your file. Importing is a concept that we will see in more detail later, but in the example above, you could write the following line at the top of `test_average.py` (assuming that `average.py` and `test_average.py` are in the same directory):
 
 ```python
 from average import average_value
@@ -564,7 +565,7 @@ When testing, it is important to be mindful of who will be working on your softw
 
 Sometimes your code does not behave as expected. This may be due to a bug in your code, or it may be due to a quirk of how Python behaves.
 
-In this situation, it can be helpful to keep track of *program state*, which essentially tells you what a program is doing at a specific point in time. In particular, a program's state includes information such as which functions are executing, what variables are defined, what the values of those variables are, and what line of code the program will execute next.
+In this situation, it can be helpful to keep track of _program state_, which essentially tells you what a program is doing at a specific point in time. In particular, a program's state includes information such as which functions are executing, what variables are defined, what the values of those variables are, and what line of code the program will execute next.
 
 In this section, we will provide a few tools and techniques you can use to see part of all of the program state. Specifically, we will describe print-based debugging, which allows you to get part of the program state at predetermined points in the code. We will also describe state and stack diagrams, which provide a more complete picture of what a function or program is doing.
 
@@ -671,7 +672,7 @@ Print-based debugging can be useful for finding bugs, particularly if you are re
 
 ### State Diagrams
 
-A more powerful tool used to track program state is the *state diagram*. This keeps track of the values of each variable at a particular point in the program's execution. The collection of each variable's value, along with the next line of code to execute, is called the program's *state*.
+A more powerful tool used to track program state is the _state diagram_. This keeps track of the values of each variable at a particular point in the program's execution. The collection of each variable's value, along with the next line of code to execute, is called the program's _state_.
 
 As an example, consider our example from earlier in this reading, in which we want to find the maximum temperature reading from a list of recorded temperatures. We could write that code as a function, like this:
 
@@ -697,26 +698,28 @@ def max_temperature(temperatures):
 
 If we call `max_temperature([1, 3, 2])` and track the values of all the variables it uses over time (either by hand or through an automated tool like what we describe below), then we get the following:
 
-| Line | `temperatures` | `current_max` | `reading` |
-|------|----------------|---------------|-----------|
-| `current_max = 0` | `[1, 3, 2]` | `0` | (not defined) |
-| `for reading in temperatures:` | `[1, 3, 2]` | `0` | `1` |
-| `if reading > current_max:` | `[1, 3, 2]` | `0` | `1` |
-| `current_max = reading` | `[1, 3, 2]` | `1` | `1` |
-| `if reading > current_max:` | `[1, 3, 2]` | `1` | `3` |
-| `current_max = reading` | `[1, 3, 2]` | `3` | `3` |
-| `if reading > current_max:` | `[1, 3, 2]` | `3` | `2` |
-| `return current_max` | `[1, 3, 2]` | `3` | (not defined) |
+| Line                           | `temperatures` | `current_max` | `reading`     |
+| ------------------------------ | -------------- | ------------- | ------------- |
+| `current_max = 0`              | `[1, 3, 2]`    | `0`           | (not defined) |
+| `for reading in temperatures:` | `[1, 3, 2]`    | `0`           | `1`           |
+| `if reading > current_max:`    | `[1, 3, 2]`    | `0`           | `1`           |
+| `current_max = reading`        | `[1, 3, 2]`    | `1`           | `1`           |
+| `if reading > current_max:`    | `[1, 3, 2]`    | `1`           | `3`           |
+| `current_max = reading`        | `[1, 3, 2]`    | `3`           | `3`           |
+| `if reading > current_max:`    | `[1, 3, 2]`    | `3`           | `2`           |
+| `return current_max`           | `[1, 3, 2]`    | `3`           | (not defined) |
 
 (The value of each variable above is after the line shown has executed.)
 
-Each line of this is a state diagram of the function's execution at a particular point in time. Here, you can see a nicer visualization (using [Python Tutor](http://www.pythontutor.com/visualize.html)) of the state diagram at the fifth line of the table above.
+Each line of this is a state diagram of the function's execution at a particular point in time. Here, you can see a nicer visualization (using [Python Tutor](http://www.pythontutor.com/visualize.html)) of the state diagram at the fifth line of the table above:
 
-State diagrams are useful for tracking the values of variables as a program executes. While during debugging, state diagrams often provide a great deal of extraneous information and are more work to track than may be worth it, we highly recommend you to practice creating state diagrams of small functions as you write and run them. This skill can come in handy, especially as you dip your toes into more complex Python code.
+![Screenshot of PythonTutor stack diagram showing partial execution of th max_temperature function](images/2-sequences-testing-state/r2_state_1.png)
+
+While during debugging, state diagrams often provide a great deal of extraneous information and are more work to track than may be worth it, we highly recommend you to practice creating state diagrams of small functions as you write and run them. This skill can come in handy, especially as you dip your toes into more complex Python code.
 
 ### Stack Diagrams
 
-A *stack diagram* is essentially a more complicated cousin of the state diagram. Sometimes, your code may have functions that themselves call other functions, and each of these functions keep their own set of variables. Here is an example:
+A _stack diagram_ is essentially a more complicated cousin of the state diagram. Sometimes, your code may have functions that themselves call other functions, and each of these functions keep their own set of variables. Here is an example:
 
 ```python
 def count_vowels(word):
@@ -754,6 +757,10 @@ def count_all_vowels(words):
     return vowels
 ```
 
-If we called `count_all_vowels(["four", "score", "and", "seven", "years", "ago"])`, we would see that there are two functions, `count_all_vowels` and `count_vowels`, each of which maintains its own state with regards to variables and their values. The functions can use the same names for their variables, but the values are set independently.
+If we called `count_all_vowels(["four", "score", "and", "seven", "years", "ago"])`, you might see the following:
+
+![PythonTutor stack diagram](images/2-sequences-testing-state/r2_stack_1.png)
+
+As you can see, there are two functions, `count_all_vowels` and `count_vowels`, each of which maintains its own state with regards to variables and their values. The functions can use the same names for their variables, but the values are set independently.
 
 Stack diagrams are useful if you need to trace through multiple functions at once. Like state diagrams, stack diagrams may require quite a bit of mental effort to create due to the number of variables that need to be tracked, but they can be particularly helpful in debugging more complex code.
