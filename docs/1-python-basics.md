@@ -1,5 +1,5 @@
 ---
-title: Reading 1
+title: Reading 1 - Python Basics
 nav_order: 4
 layout: default
 ---
