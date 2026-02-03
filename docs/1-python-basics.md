@@ -3,6 +3,7 @@ title: Reading 1
 nav_order: 4
 layout: default
 ---
+
 # Reading 1: Python Basics
 
 In this chapter, you will learn about the basics of writing code in Python. Even with the small amount of Python you learn here, you should be able to write short programs that will run on your computer.
@@ -15,7 +16,7 @@ There are a few ways to run Python code, which we describe below. As you go thro
 
 ### The Python Interpreter
 
-One way to run Python code is to use the *Python interpreter*, which allows you to run individual statements of Python code. This is useful for quickly trying out small amounts of code.
+One way to run Python code is to use the _Python interpreter_, which allows you to run individual statements of Python code. This is useful for quickly trying out small amounts of code.
 
 You can start the Python interpreter by opening a terminal window and running `python`. You should see something that roughly looks like this:
 
@@ -63,7 +64,7 @@ In this course, you will write most of your code in files like these.
 
 ### Jupyter Notebooks
 
-Another way to run Python is through *Jupyter notebooks*, which you have already seen in Reading 0. Each Jupyter notebook has a *kernel*, which you can think of as a Python interpreter running as a Web service in the background. The kernel runs code from a notebook's code cells.
+Another way to run Python is through _Jupyter notebooks_, which you have already seen in Reading 0. Each Jupyter notebook has a _kernel_, which you can think of as a Python interpreter running as a Web service in the background. The kernel runs code from a notebook's code cells.
 
 Using Jupyter notebooks requires a Web server to be running on your computer, so to run or edit these notebooks, you will need to first start this server. To do so, run the command `jupyter notebook` or `jupyter lab` in a new terminal window. You are recommended to use a terminal window/tab just for this command, since the server prints output as it runs. To shut down the server, press Ctrl-C (and usually, you will then have to enter `y` to confirm).
 
@@ -77,7 +78,7 @@ If not, you can look in the notebook server output for a link that looks like th
 http://localhost:8888/?token=a995013330f6bb9d0546af78778c19a99a6400397e23e1fc
 ```
 
-Jupyter notebook files have names ending in `.ipynb` (for *interactive Python notebook*). If you open a notebook file, you will see an interface that looks like this:
+Jupyter notebook files have names ending in `.ipynb` (for _interactive Python notebook_). If you open a notebook file, you will see an interface that looks like this:
 
 ![Jupyter Notebook Example](images/1-python-basics/jupyter_sample_notebook.png)
 
@@ -85,15 +86,15 @@ The number next to the code cell indicates the order in which you have run the c
 
 ## Variables and Names
 
-The concept of *variables* is fundamental to computing, since it allows us to store and use data over the course of a program. This data can be simple values such as integers or can be code that executes as part of a program. In this section, we will provide an introduction to how variables work in Python.
+The concept of _variables_ is fundamental to computing, since it allows us to store and use data over the course of a program. This data can be simple values such as integers or can be code that executes as part of a program. In this section, we will provide an introduction to how variables work in Python.
 
 ### Objects
 
-*Objects* are how Python represents data. An object consists of three things:
+_Objects_ are how Python represents data. An object consists of three things:
 
-- An *identity*: where on your computer the object lives. We generally do not care about the identity of an object in this course.
-- A *type*: what kind of data the object represents, like an integer, string or list. This determines what Python can do with the object.
-- A *value*: usually, this is the actual data that we care about, like 42 or `"Olin"`.
+- An _identity_: where on your computer the object lives. We generally do not care about the identity of an object in this course.
+- A _type_: what kind of data the object represents, like an integer, string or list. This determines what Python can do with the object.
+- A _value_: usually, this is the actual data that we care about, like 42 or `"Olin"`.
 
 As an example, consider the mathematical expression x = 42. We can say that it is an integer (its type) with the value 42.
 
@@ -101,7 +102,7 @@ If you find the concept of object representation in Python interesting and want 
 
 ### Variables vs. Objects
 
-A variable is basically an object with a *name* - a way for humans to refer to the object. Perhaps confusingly, we sometimes use the term *identifier* to refer to an variable name - this is not the same as an object's identity.
+A variable is basically an object with a _name_ - a way for humans to refer to the object. Perhaps confusingly, we sometimes use the term _identifier_ to refer to an variable name - this is not the same as an object's identity.
 
 ### Variable Names
 
@@ -123,17 +124,17 @@ Somewhat surprisingly, the rules allow `_` by itself to be a valid variable name
 
 ### Variable Name Style
 
-Knowing what a variable *can* have as a name is not the same as knowing what a variable *should* have as a name. Carefully chosen names allow you convey a great deal of meaning about the variable to other people reading your code.
+Knowing what a variable _can_ have as a name is not the same as knowing what a variable _should_ have as a name. Carefully chosen names allow you convey a great deal of meaning about the variable to other people reading your code.
 
-Many programming language communities have norms or conventions about style, and Python is no different. In Python, variable names should be generally be written in *snake case*, which means all lowercase, with words separated by the underscore character (`_`). This means you would write `total_expenses` instead of `totalExpenses` like you might in a language like Java (this is called *camel case*).
+Many programming language communities have norms or conventions about style, and Python is no different. In Python, variable names should be generally be written in _snake case_, which means all lowercase, with words separated by the underscore character (`_`). This means you would write `total_expenses` instead of `totalExpenses` like you might in a language like Java (this is called _camel case_).
 
-There are a few exceptions to this naming convention, but for now, the only one you should remember is that if you are defining a *constant*, that is, a variable whose value you will set once and never change in the program, you should write its name in all caps (but still separating words with underscores). For example, if you were simulating the orbit of the moon around the earth, you could have a variable called `EARTH_MASS`, which you would set only once - the earth's mass is (hopefully) not changing in your simulation.
+There are a few exceptions to this naming convention, but for now, the only one you should remember is that if you are defining a _constant_, that is, a variable whose value you will set once and never change in the program, you should write its name in all caps (but still separating words with underscores). For example, if you were simulating the orbit of the moon around the earth, you could have a variable called `EARTH_MASS`, which you would set only once - the earth's mass is (hopefully) not changing in your simulation.
 
 In addition to this convention, everyone has a different idea of what makes a "good" variable name, but here are a few that we use:
 
 - Avoid single-letter names, except a few special cases. If you are looping through a list of integers, using `i` is fine, but if there is a way to reasonably describe your variable in words, you should prefer to do so. For example, instead of writing `f = m * a`, write `force = mass * acceleration`.
 - Avoid excessive abbreviation. The meanings of abbreviations depend on the context and the area, and it's easy to get confused. For example, `fn` could be short for "function" or "false negative" - it's easier to just write this out.
-- Avoid vague names. Variable names like `num`, `count`, or `value` can make code difficult to understand because they are all measuring *something* - it's just not clear what from those names.
+- Avoid vague names. Variable names like `num`, `count`, or `value` can make code difficult to understand because they are all measuring _something_ - it's just not clear what from those names.
 
 Though you might not understand all of it, we encourage you to take a look at other kinds of names to avoid in the Google Python Style Guide (about a paragraph).
 
@@ -141,7 +142,7 @@ It might be tempting to not follow these rules from time to time: many tutorials
 
 ## Creating and Changing Variables
 
-You can create a variable with an *assignment statement*, like this:
+You can create a variable with an _assignment statement_, like this:
 
 ```python
 answer_to_life = 42
@@ -166,7 +167,7 @@ Note that doing this does not change the values of things that have used that va
 
 We will now take a look at a few basic types. Remember that a object's type defines what you can do with the object. If a part of your program expects data of a certain type and instead gets data of a different type, it can crash with an error. These errors are inevitable, but with a good understanding of types, you will be able to quickly find and fix the relevant part of your code.
 
-Along with these types, we will look at a few *operators* that you can use with them. Operators are essentially symbols that represent doing something with one or more values.
+Along with these types, we will look at a few _operators_ that you can use with them. Operators are essentially symbols that represent doing something with one or more values.
 
 As you go through this section, we encourage you to run the code and explore a bit on your own. If you ever want to see what type something is, you can use the `type` function in the Python interpreter or in a Jupyter notebook like this:
 
@@ -182,7 +183,7 @@ type(answer_to_life + 3.14)
 
 ### Integers and Arithmetic Operators
 
-As its name suggests, the *integer* type represents integer values (numbers with nothing past the decimal point). You can get the additive inverse (negative) of an integer by adding a `-` before the integer:
+As its name suggests, the _integer_ type represents integer values (numbers with nothing past the decimal point). You can get the additive inverse (negative) of an integer by adding a `-` before the integer:
 
 ```python
 positive_int = 42
@@ -226,7 +227,7 @@ Division is a bit odd since dividing two integers does not always produce an int
 2.5
 ```
 
-The result of this division is a floating-point number, which we will discuss next. However, it is worth noting that dividing two integers *always* produces a floating-point number, even if the result would ordinarily be an integer:
+The result of this division is a floating-point number, which we will discuss next. However, it is worth noting that dividing two integers _always_ produces a floating-point number, even if the result would ordinarily be an integer:
 
 ```python
 >>> 5 / 1
@@ -235,14 +236,14 @@ The result of this division is a floating-point number, which we will discuss ne
 
 This behavior might seem unintuitive, but can be helpful when reasoning about a program's behavior. Because dividing two integers always produces a floating-point number, if you have integers `a` and `b` and write a line like `c = a / b`, you know that `c` is always a floating-point number, regardless of whether `b` divides `a` or not.
 
-If you want the division of two integers to instead produce an integer, you can use the *floor division* operator, written `//`:
+If you want the division of two integers to instead produce an integer, you can use the _floor division_ operator, written `//`:
 
 ```python
 >>> 24 // 4
 6
 ```
 
-This operation is called floor division because it always rounds the result *down* to the next integer:
+This operation is called floor division because it always rounds the result _down_ to the next integer:
 
 ```python
 >>> 5 // 4
@@ -255,7 +256,7 @@ This operation is called floor division because it always rounds the result *dow
 2
 ```
 
-The *remainder* operator, written as `%`, is related to the floor division operator, giving the remainder of dividing two integers:
+The _remainder_ operator, written as `%`, is related to the floor division operator, giving the remainder of dividing two integers:
 
 ```python
 >>> 5 % 4
@@ -268,7 +269,7 @@ The *remainder* operator, written as `%`, is related to the floor division opera
 0
 ```
 
-The remainder operator is sometimes called the *modulo* operator or simply *mod* for short, but this term can be confusing because some people (and programming languages) assume that the modulo operation must produce a positive number, whereas in Python, it does not:
+The remainder operator is sometimes called the _modulo_ operator or simply _mod_ for short, but this term can be confusing because some people (and programming languages) assume that the modulo operation must produce a positive number, whereas in Python, it does not:
 
 ```python
 >>> 13 % 4
@@ -285,7 +286,7 @@ In Python, you can assume that `a % b` will always produce an integer between 0 
 
 ### Floating-Point Numbers
 
-*Floating-point numbers*, sometimes simply called *floats*, are a type that represent numbers with a decimal point. The term "floating point" refers to the fact that the decimal point can "float" among the digits: you can have a float with one digit past the decimal point, and another float with 22 digits past the decimal point.
+_Floating-point numbers_, sometimes simply called _floats_, are a type that represent numbers with a decimal point. The term "floating point" refers to the fact that the decimal point can "float" among the digits: you can have a float with one digit past the decimal point, and another float with 22 digits past the decimal point.
 
 Floats support all of the arithmetic operations that integers do, but note that arithmetic with floats can sometimes have surprising results:
 
@@ -300,7 +301,7 @@ If you want to read more about arithmetic with floating-point numbers in Python,
 
 ### Booleans
 
-The *boolean* type has only two possible values: `True` and `False`. (Capitalization is important here - `true` or `false` will not work.) Booleans represent the truth of logical statements, and are used in all but the simplest programs.
+The _boolean_ type has only two possible values: `True` and `False`. (Capitalization is important here - `true` or `false` will not work.) Booleans represent the truth of logical statements, and are used in all but the simplest programs.
 
 #### Comparison Operators
 
@@ -310,7 +311,7 @@ You can set the values of boolean variables directly:
 checked_out = True
 ```
 
-But more often than not, this is done with *comparison operators*, which allow you to compare two values and determine whether that comparison is true or false. The basic comparison operators are:
+But more often than not, this is done with _comparison operators_, which allow you to compare two values and determine whether that comparison is true or false. The basic comparison operators are:
 
 - Equality (`==`): `True` if the two sides are equal.
 - Inequality (`!=`): `True` if the two sides are not equal.
@@ -392,13 +393,13 @@ new_warnings == total_warnings > total_errors <= total_messages
 
 ### Strings
 
-The *string* type represents text, like `'Trogdor'` or `"BURNiNATOR"`. It doesn't matter whether you use single quotes (`'`) or double quotes (`"`), as long as they match.
+The _string_ type represents text, like `'Trogdor'` or `"BURNiNATOR"`. It doesn't matter whether you use single quotes (`'`) or double quotes (`"`), as long as they match.
 
-You can have a string with nothing in it called the *empty string*. It is written as `""`.
+You can have a string with nothing in it called the _empty string_. It is written as `""`.
 
 #### Escaping
 
-If you need to use a quote mark within a string, you can precede it with a backslash (`\`). This is called *escaping* the quote mark, because you temporarily "escape" Python looking for the end of the string. Note that you only need to escape quote marks that match the ones you are using for the string itself:
+If you need to use a quote mark within a string, you can precede it with a backslash (`\`). This is called _escaping_ the quote mark, because you temporarily "escape" Python looking for the end of the string. Note that you only need to escape quote marks that match the ones you are using for the string itself:
 
 ```python
 >>> "Dorothy said, \"There's no place like home.\""
@@ -420,7 +421,7 @@ You can also "add" two strings together:
 greeting = "Hello " + "world!"
 ```
 
-This is called *concatenation*. Notice that spaces are not automatically added, so we had to do it ourselves in `"Hello "`.
+This is called _concatenation_. Notice that spaces are not automatically added, so we had to do it ourselves in `"Hello "`.
 
 You can repeat a string by multiplying it by an integer:
 
@@ -459,7 +460,7 @@ personalized_greeting = "Hello, " + name + "!"
 
 It can be tricky to remember to put spaces in the right place, and if you want to include the value of an integer in the string, you have to convert it into a string first (which you will see later in this reading).
 
-You can solve both of these issues with an *f-string*:
+You can solve both of these issues with an _f-string_:
 
 ```python
 personalized_greeting = f"Hello, {name}!"
@@ -482,7 +483,7 @@ school = "Franklin W. Olin College of Engineering"
 school[1]
 ```
 
-This called called *indexing* a string, and in this example, the number 1 is called the *index*.
+This called called _indexing_ a string, and in this example, the number 1 is called the _index_.
 
 You may be surprised to see that `school[1]` gives you the second character of `school` instead of the first. In Python, the index of strings and other types start from 0, so the ith character of a string is at index i - 1. It may be helpful to think of the index as how many characters you are away from the first character in the string.
 
@@ -505,9 +506,9 @@ advice = "Use the Force"
 advice[4:7]
 ```
 
-This is called *slicing* a string, and the portion of the string you get back is called a *slice*. The two indices can be negative as well, like `advice[-9:-6]`.
+This is called _slicing_ a string, and the portion of the string you get back is called a _slice_. The two indices can be negative as well, like `advice[-9:-6]`.
 
-You might be a bit surprised to see that the character at the second index is not included in the slice - in other words, you get the portion of the string *including* the first index *up to* the second index.
+You might be a bit surprised to see that the character at the second index is not included in the slice - in other words, you get the portion of the string _including_ the first index _up to_ the second index.
 
 One nice thing about doing string slices this way is that the difference between the two indices is the number of characters you get back (so `advice[4:7]` gives you 3 characters).
 
@@ -522,7 +523,7 @@ If you give an invalid pair of starting and/or ending positions, you will get an
 ''
 ```
 
-You can also provide a second colon (`:`) along with another integer (called the *step size*) to take every nth character:
+You can also provide a second colon (`:`) along with another integer (called the _step size_) to take every nth character:
 
 ```python
 >>> advice[::2]
@@ -558,7 +559,7 @@ This example is a handy way to reverse a string. You may notice that the start a
 
 ## Conditionals
 
-A *conditional* allows you to execute certain Python code based on certain factors such as whether a variable has a certain value.
+A _conditional_ allows you to execute certain Python code based on certain factors such as whether a variable has a certain value.
 
 ### The `if` Statement
 
@@ -654,10 +655,10 @@ Functions are a central piece of Python programming. They essentially allow you 
 
 You can think of a function as having four key components:
 
-- It has a *name*, so that you can refer to it.
-- It may have *parameters*, which are pieces of data that you give to it when running it.
-- It may have *side effects*, which are things that the function "changes" outside of itself as it runs (more on this later).
-- It may have a *return value*, which is data it gives back to you after it has finished running.
+- It has a _name_, so that you can refer to it.
+- It may have _parameters_, which are pieces of data that you give to it when running it.
+- It may have _side effects_, which are things that the function "changes" outside of itself as it runs (more on this later).
+- It may have a _return value_, which is data it gives back to you after it has finished running.
 
 It is helpful to build up the skill of identifying these four things in a function when you see one.
 
@@ -678,14 +679,14 @@ So what is a side effect, then? What does it mean to change something outside of
 
 ### Calling a Function
 
-Using the function by running its code is called *calling* the function. You can call a function like this:
+Using the function by running its code is called _calling_ the function. You can call a function like this:
 
 ```python
 # This will return the string "olleH"
 reverse("Hello")
 ```
 
-In this example the string `"Hello"` is called an *argument* to `reverse`. This might be a subtle distinction, but you can think of a parameter as a name and type, and an argument as a value.
+In this example the string `"Hello"` is called an _argument_ to `reverse`. This might be a subtle distinction, but you can think of a parameter as a name and type, and an argument as a value.
 
 You can take the return value of a function you have called and assign it to a variable:
 
@@ -698,7 +699,7 @@ In this case, we usually say that `reverse` takes `"Hello"` as an argument and r
 
 ### Docstrings
 
-A *docstring* is a special string used to explain the behavior, parameters, return value, and side effects of a function in human-readable form. (Other things in Python can have docstrings, but we will discuss those later.) In our `reverse` example, from above, a docstring would look something like this:
+A _docstring_ is a special string used to explain the behavior, parameters, return value, and side effects of a function in human-readable form. (Other things in Python can have docstrings, but we will discuss those later.) In our `reverse` example, from above, a docstring would look something like this:
 
 ```python
 def reverse(word):
@@ -754,10 +755,10 @@ This is where the `pass` statement comes in handy.
 def factorial(number):
     """
     Return the factorial of a given number.
-    
+
     Args:
         number: An int representing a number to compute the factorial of.
-    
+
     Returns:
         An integer representing N factorial.
     """
@@ -842,11 +843,11 @@ In an interactive Python environment like the interpreter or a Jupyter notebook,
 
 ## Bugs
 
-Initially you will likely encounter two type of bugs in Python: syntax errors and runtime errors (also called *exceptions*).
+Initially you will likely encounter two type of bugs in Python: syntax errors and runtime errors (also called _exceptions_).
 
 ### Syntax Errors
 
-In programming languages, *syntax* refers to the set of rules about what constitutes a valid statement. This term is also used in linguistics - a valid (syntactically correct) English sentence needs to start with a capitalized word and end in a period, question mark, or exclamation point. Note that syntax has nothing to do with the correctness of the code itself, or whether the code will even run successfully. "Colorless green ideas sleep furiously." is a valid sentence using the rules of English syntax but doesn't have a widely agreed-upon meaning, and the statement `x += 42` on its own is a valid Python expression but won't execute successfully because `x` does not have a value.
+In programming languages, _syntax_ refers to the set of rules about what constitutes a valid statement. This term is also used in linguistics - a valid (syntactically correct) English sentence needs to start with a capitalized word and end in a period, question mark, or exclamation point. Note that syntax has nothing to do with the correctness of the code itself, or whether the code will even run successfully. "Colorless green ideas sleep furiously." is a valid sentence using the rules of English syntax but doesn't have a widely agreed-upon meaning, and the statement `x += 42` on its own is a valid Python expression but won't execute successfully because `x` does not have a value.
 
 When you try to run code in Python, the interpreter checks the text of the code to try to split it into a series of statements that it can then execute. If this process fails, you get a syntax error. Try running the code below in a Jupyter notebook:
 
@@ -855,7 +856,7 @@ print("Hello world!")
 x = (4, 5
 ```
 
-As expected, we get a syntax error. Notice that when you get a syntax error, *none* of the code runs, even if the code before the error is fine (like the `print` function call above).
+As expected, we get a syntax error. Notice that when you get a syntax error, _none_ of the code runs, even if the code before the error is fine (like the `print` function call above).
 
 If we ran this code in the Python interpreter, we'd see this:
 
@@ -870,7 +871,7 @@ The interpreter would wait for you to close the parentheses and use the `...` to
 
 When encountering an error, it's also important to pay attention to two pieces of information when you get an error: the location of the error, and the error message.
 
-The location of the error consists of a file, line number, and position in that line. In a Jupyter notebook, the file is `"<ipython-input-...>"` (which is the format for cells in a Jupyter noteook) and in the Python interpreter, the file is `"<stdin>"`. In a regular `.py` file, this would be the name of the file itself. The line number tells you where in the file the error occurred, and the caret (`^`) shows you where in the line the error occurred. It's worth noting that the caret will point to the spot where Python *first detects that there must be a syntax error*, not necessarily to the location that needs to be fixed. Take a look at this example:
+The location of the error consists of a file, line number, and position in that line. In a Jupyter notebook, the file is `"<ipython-input-...>"` (which is the format for cells in a Jupyter noteook) and in the Python interpreter, the file is `"<stdin>"`. In a regular `.py` file, this would be the name of the file itself. The line number tells you where in the file the error occurred, and the caret (`^`) shows you where in the line the error occurred. It's worth noting that the caret will point to the spot where Python _first detects that there must be a syntax error_, not necessarily to the location that needs to be fixed. Take a look at this example:
 
 ```python
 x = (1,
@@ -888,7 +889,7 @@ SyntaxError: invalid syntax
 
 Notice that it isn't until `=` that the Python interpreter knows this must be a syntax error - for all it knows, `y` could have been defined and part of a larger expression.
 
-The error message can sometimes give you a helpful clue as to what has gone wrong. In the first example above, you should have gotten the error message "unexpected EOF while parsing" (EOF stands for *end of file*). This message tells you that as the Python interpreter was scanning to find the end of the tuple, a collection of several pieces of data you will learn about later.
+The error message can sometimes give you a helpful clue as to what has gone wrong. In the first example above, you should have gotten the error message "unexpected EOF while parsing" (EOF stands for _end of file_). This message tells you that as the Python interpreter was scanning to find the end of the tuple, a collection of several pieces of data you will learn about later.
 
 However, sometimes the error message is less helpful: in the second example above, you should have only gotten the message "invalid syntax", which provides almost no additional information. As a helpful tip, the message "invalid syntax" almost always means that you forgot to close a paired delimiter (i.e., you left out a `)`, `]`, or `}`) or that you left out a colon (`:`) at the end of a statement starting with `if`, `for`, `while`, etc.
 
@@ -896,7 +897,7 @@ Finally, note that in addition to `SyntaxError`, there is another type of syntax
 
 ### Exceptions
 
-Runtime errors or *exceptions* are errors that occur while code is running. Most non-syntax errors that cause the code to stop running will fall into this category.
+Runtime errors or _exceptions_ are errors that occur while code is running. Most non-syntax errors that cause the code to stop running will fall into this category.
 
 Exceptions in Python can happen for a large possible number of reasons. When you encounter an exception, the most helpful step is usually to read the error message to understand exactly what happened. That being said, the most common errors you will see at this point are likely `NameError` (the variable or function that you are trying to use has not been defined yet) or `TypeError` (you mistakenly tried to do something like add an int to a string).
 
@@ -943,33 +944,32 @@ You may notice the line above says `number * 2.` rather than `number ** 2`, whic
 
 Semantic errors become harder to track down as you write larger and more complicated programs. Fortunately, there are many powerful tools you can use to chase down these errors. You will learn about several of these later in this course.
 
-
-*   [Running Python Code](#running-python-code)
-    *   [The Python Interpreter](#the-python-interpreter)
-    *   [Python Scripts](#python-scripts)
-    *   [Jupyter Notebooks](#jupyter-notebooks)
-*   [Variables and Names](#variables-and-names)
-    *   [Objects](#objects)
-    *   [Variables vs. Objects](#variables-vs-objects)
-    *   [Variable Names](#variable-names)
-    *   [Variable Name Style](#variable-name-style)
-*   [Creating and Changing Variables](#creating-and-changing-variables)
-*   [Basic Types and Operators](#basic-types-and-operators)
-    *   [Integers and Arithmetic Operators](#integers-and-arithmetic-operators)
-    *   [Floating-Point Numbers](#floating-point-numbers)
-    *   [Booleans](#booleans)
-    *   [Strings](#strings)
-*   [Conditionals](#conditionals)
-    *   [The `if` Statement](#the-if-statement)
-    *   [The `else` Statement](#the-else-statement)
-    *   [The `elif` Statement](#the-elif-statement)
-*   [Functions](#functions)
-    *   [Anatomy of a Function](#anatomy-of-a-function)
-    *   [Calling a Function](#calling-a-function)
-    *   [Docstrings](#docstrings)
-    *   [The `pass` Statement](#the-pass-statement)
-    *   [Common Functions](#common-functions)
-*   [Bugs](#bugs)
-    *   [Syntax Errors](#syntax-errors)
-    *   [Exceptions](#exceptions)
-    *   [Semantic Errors](#semantic-errors)
+- [Running Python Code](#running-python-code)
+  - [The Python Interpreter](#the-python-interpreter)
+  - [Python Scripts](#python-scripts)
+  - [Jupyter Notebooks](#jupyter-notebooks)
+- [Variables and Names](#variables-and-names)
+  - [Objects](#objects)
+  - [Variables vs. Objects](#variables-vs-objects)
+  - [Variable Names](#variable-names)
+  - [Variable Name Style](#variable-name-style)
+- [Creating and Changing Variables](#creating-and-changing-variables)
+- [Basic Types and Operators](#basic-types-and-operators)
+  - [Integers and Arithmetic Operators](#integers-and-arithmetic-operators)
+  - [Floating-Point Numbers](#floating-point-numbers)
+  - [Booleans](#booleans)
+  - [Strings](#strings)
+- [Conditionals](#conditionals)
+  - [The `if` Statement](#the-if-statement)
+  - [The `else` Statement](#the-else-statement)
+  - [The `elif` Statement](#the-elif-statement)
+- [Functions](#functions)
+  - [Anatomy of a Function](#anatomy-of-a-function)
+  - [Calling a Function](#calling-a-function)
+  - [Docstrings](#docstrings)
+  - [The `pass` Statement](#the-pass-statement)
+  - [Common Functions](#common-functions)
+- [Bugs](#bugs)
+  - [Syntax Errors](#syntax-errors)
+  - [Exceptions](#exceptions)
+  - [Semantic Errors](#semantic-errors)
