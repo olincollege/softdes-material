@@ -8,7 +8,7 @@ Alternative setup instructions for non-supercomputer users.
 
 **A majority of these instructions were written for Windows 11.** This was the only supported operating system in prior iterations of the course, and therefore has the most documentation. If you are using macOS or Linux we will help you to the best of our ability, but ultimately we can't guarantee that we can help you fix your issue, and you will be responsible for getting to a correct setup.
 
-All Linux instructions assume a basic understanding of the command line. 
+All Linux instructions assume a basic understanding of the command line and your Linux distribution. 
 
 ## Table of Contents
 - [Windows](#windows)
@@ -238,19 +238,20 @@ It is possible to write Python code in a plain text editor, such as Notepad, but
 
 ### Directions [#](#directions-3)
 
+#### Windows
+
 Go to the [VS Code Download page](https://code.visualstudio.com/download) and click the Windows button to download the installer. (By default, this will download the 64-bit User Installer whose link is just below the download button.) Run the installer, using all of the default options. Most importantly, make sure that “Add to PATH” remains checked. (You can uncheck “Launch Visual Studio Code” at the end of the install process, as you should have the other components installed before configuring it.)
 
 ![Make sure Add to PATH stays checked](/vscode_add_to_path.png)
+
+#### Linux
+Install VS Code using your distribution's package manager. It is typically named `vscode` or `visual-studio-code`.
 
 ### Check [#](#check-3)
 
 To test that you have installed VS Code correctly, you only need to make sure that it launches for now.
 
 ## Configure VS Code [#](#configure-vs-code)
-
-### Context [#](#context-4)
-
-While you can run VS Code from the Start menu as you would with any other program, there are some oddities about the way it works with Anaconda and WSL that will likely cause unintuitive issues if you run it this way. Because of this, you should configure VS Code to work with Anaconda’s version of Python and with WSL. You will do this by installing extensions for VS Code.
 
 ### Directions [#](#directions-4)
 
