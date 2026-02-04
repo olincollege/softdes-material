@@ -257,9 +257,11 @@ To test that you have installed VS Code correctly, you only need to make sure th
 
 Launch Ubuntu in GWSL by opening the GWSL app, selecting “Linux Shell”, and choosing your version of Ubuntu. Then run `code` (type it in and press Enter). The first time you run this command, it will do some setup on WSL, so it may take awhile.
 
-If you just installed VS Code and you see `code: command not found`, restart WSL by opening the GWSL menu and navigating to `GWSL Distro Tools -> Reboot Ubuntu`.
+If you just installed VS Code and you see `code: command not found`
+ - for Windows restart WSL by opening the GWSL menu and navigating to `GWSL Distro Tools -> Reboot Ubuntu`.
+ - for Linux restart your terminal
 
-#### Install Remote WSL Extension [#](#install-remote-wsl-extension)
+#### Install Remote WSL Extension - Windows WSL Only [#](#install-remote-wsl-extension)
 
 Once it has started, you will need to install the Remote WSL extension. Navigate to the extensions menu via `File -> Preferences -> Extensions` or by pressing Ctrl-Shift-X. Then search for and install the extension “Remote - WSL”. If you already installed the “Remote - WSL” extension when opening VS Code earlier, you do not need to do so again.
 
@@ -271,21 +273,21 @@ After installing the Remote WSL extension, you should see a small green box in t
 
 A new VS Code window should open. In the bottom left, the little green box should now say `WSL: Ubuntu`.
 
-#### Install Python Extension Inside VS Code Remote [#](#install-python-extension-inside-vs-code-remote)
+#### Install Python Extension [#](#install-python-extension-inside-vs-code-remote)
 
-Now you need to install the Python extension for VS Code. Inside your VS Code window (the one which says `WSL: Ubuntu` in the bottom left), navigate to the extensions menu via `File -> Preferences -> Extensions` or by pressing Ctrl-Shift-X. Search for the Python extension. Click the button which says `Install in WSL: Ubuntu`.
+Now you need to install the Python extension for VS Code. Inside your VS Code window (if you're using Windows make sure it says `WSL: Ubuntu` in the bottom left), navigate to the extensions menu via `File -> Preferences -> Extensions` or by pressing Ctrl-Shift-X. Search for the Python extension. Click the install button. 
 
 ![Install Python extension in VS Code](/vscode_install_python_in_wsl.png)
 
 #### Set Up Automatic Formatting [#](#set-up-automatic-formatting)
 
-In assignment 0, you will learn about autoformatting code and be introduced to a tool called autopep8 which helps standardize various conventions, especially those revolving around whitespace usage in code.
+In assignment 0, you will learn about autoformatting code and be introduced to a tool called black which helps standardize various conventions, especially those revolving around whitespace usage in code.
 
-You can set up VSCode to automatically run the `autopep8` command (or automatic formatter) each time that you save a file; this will ensure that you no longer have to run it manually prior to submission, reducing the chances of forgetting to do so before submission.
+You can set up VSCode to automatically run the formatter each time that you save a file; this will ensure that you no longer have to run it manually prior to submission, reducing the chances of forgetting to do so before submission.
 
 1.  Click on the settings gear in the bottom left of the VSCode window & navigate to settings (alternatively, hitting Ctrl+, will work).
-2.  Search for `autopep8`.
-3.  Under the option that says Python > Formatting: Provider, select autopep8. ![Set Formatting to Autopep8](/set_formatting_to_autopep8.png)
+2.  Search for `black`.
+3.  Under the option that says Python > Formatting: Provider, select black. ![Set Formatting to Autopep8](/set_formatting_to_autopep8.png)
 4.  Search for “format and save”.
 5.  Check the box that says “Editor: Format on Save”. ![Enable Autoformat on Save](/enable_autoformat_on_save.png)
 
@@ -301,9 +303,9 @@ While VSCode cannot automatically fix a majority of these issues, you can set it
 
 ### Check [#](#check-4)
 
-To check that you completed this step properly, launch VS Code if it is not already running by running the `code` command in Ubuntu. Once the VS Code window opens, make sure that the lower left corner shows a green box that says “WSL - Ubuntu”. If you do not see this, open the extensions menu as described above and make sure that the “Remote - WSL” extension shows as installed.
+To check that you completed this step properly, launch VS Code if it is not already running by running the `code` command. If on windows, once the VS Code window opens, make sure that the lower left corner shows a green box that says “WSL - Ubuntu”. If you do not see this, open the extensions menu as described above and make sure that the “Remote - WSL” extension shows as installed.
 
-Then, open a new file from the File menu or by pressing Ctrl-N. Then save the (blank) file from the File menu or by pressing Ctrl-S. You can save the file under any name as long as it ends in `.py`. Once you do this, you may see a message that says “Select Python interpreter” as a popup or by the green box that says “WSL - Ubuntu”. Choose the interpreter that ends in “(‘base’: conda)” and make sure that it appears in the lower left corner. If you do not see this prompt, make sure that the “Python” extension is installed.
+Then, open a new file from the File menu or by pressing Ctrl-N. Then save the (blank) file from the File menu or by pressing Ctrl-S. You can save the file under any name as long as it ends in `.py`. If you see a message that says “Select Python interpreter” as a popup, Choose the interpreter that ends in “(‘base’: conda)” and make sure that it appears in the lower left corner. If you do not see this prompt, make sure that the “Python” extension is installed.
 
 ## Create a GitHub account [#](#create-a-github-account)
 
