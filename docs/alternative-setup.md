@@ -8,6 +8,8 @@ Alternative setup instructions for non-supercomputer users.
 
 **A majority of these instructions were written for Windows 11.** This was the only supported operating system in prior iterations of the course, and therefore has the most documentation. If you are using macOS or Linux we will help you to the best of our ability, but ultimately we can't guarantee that we can help you fix your issue, and you will be responsible for getting to a correct setup.
 
+All Linux instructions assume a basic understanding of the command line. 
+
 ## Table of Contents
 - [Windows](#windows)
     - [Install and Configure Windows Subsystem for Linux (WSL)](#install-and-configure-windows-subsystem-for-linux-wsl)
@@ -195,6 +197,7 @@ For that reason, we have you install [Quarto](https://quarto.org/), an open sour
 
 ### Directions [#](#directions-2)
 
+#### Windows (WSL) and Ubuntu Linux
 Navigate to the Quarto [Getting Started](https://quarto.org/docs/get-started/) page and find the download link for the **Linux** (not Windows) version. It should look something like `quarto-X.X.XXX-linux-amd64.deb`. Right click this and select `copy link` or `copy link address` depending on your browser.
 
 ![Quarto download page](/quarto_download.png)
@@ -207,9 +210,13 @@ wget https://github.com/quarto-dev/quarto-cli/releases/download/vX.X.XXX/quarto-
 
 Run this command by pressing Enter. You should see it download. Once the download is finished, type `sudo apt install ./q` and press tab. It should auto complete to the Quarto file you just downloaded. Press Enter to run this command. It will prompt you for a password. This is the Linux password you setup earlier; it is not necessarily the same as your Windows password.
 
+#### Linux (other distributions)
+Installation on other Linux distributions varies. Arch users may download `quarto-cli-bin` from the AUR.
+
+
 ### Check [#](#check-2)
 
-To test that Quarto installed successfully, run the following command in your WSL window:
+To test that Quarto installed successfully, run the following command in the terminal:
 
 ```
 quarto -h
