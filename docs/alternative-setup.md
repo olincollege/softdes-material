@@ -76,22 +76,15 @@ First, you need to install WSL on your system. You can then install the appropri
 
 ##### Install WSL [#](#install-wsl)
 
-From the Start menu, open PowerShell **as an administrator**, as shown in red below:
-
-![Option to launch PowerShell as an
-administrator](/powershell_admin_launcher.png)
+From the Start menu, open PowerShell **as an administrator**.
 
 A prompt may appear on screen - if it does, click Yes to move on.
 
-This should open a window that looks like what you see below. Make sure that “Administrator” is shown in the window title (in red below):
-
-![PowerShell window in administrator mode](/powershell_admin_window.png)
+This should open a window that looks like what you see below. Make sure that “Administrator” is shown in the window title.
 
 In this window, type `wsl --install` and run the command by pressing Enter. You may get another prompt, and you can click Yes to move on again.
 
 Sometimes, the process can fail, in which case you should try running the command again. Make sure that what you see at the end of running this command shows that it was successful (in green below) rather than that something failed or was denied (in red below).
-
-![Failed and successful results of installing WSL](/wsl_install_status.png)
 
 Once this is done, restart your machine.
 
