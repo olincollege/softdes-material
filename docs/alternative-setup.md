@@ -396,7 +396,7 @@ _Source_: [https://xkcd.com/1987/](https://xkcd.com/1987/)
 
 ## Troubleshooting [#](#troubleshooting)
 
-### No Network Access in Ubuntu [#](#no-network-access-in-ubuntu)
+### No Network Access in Ubuntu - WSL [#](#no-network-access-in-ubuntu)
 
 Examples of this occurring in the computational setup:
 
@@ -405,7 +405,7 @@ Examples of this occurring in the computational setup:
 
 This is due to the firewall installed on your Olin laptop blocking network access to WSL. As of Spring 2022, Olin uses Symantec for its firewall. You can temporally disable Symantec. Press `Win-R` on your keyboard. A window called “run” will open in the bottom left. In the text box, type `smc -stop`. Windows will ask if you want Symantec to make changes to your device. Select `yes`. Symantec will be temporally disabled.
 
-### VS Code Complains It Cannot Use the Python Extension [#](#vs-code-complains-it-cannot-use-the-python-extension)
+### VS Code Complains It Cannot Use the Python Extension - WSL [#](#vs-code-complains-it-cannot-use-the-python-extension)
 
 The WSL Remote extension creates multiple profiles for VS Code, one for Windows (local), and one for every version of Linux you have installed for WSL (remotes). What is most likely happening here is the Python extension is installed under the local profile. It needs to be installed in the remote profile to work.
 
@@ -413,7 +413,7 @@ To fix this, open a VS Code window, make sure it says `WSL: Ubuntu` in the botto
 
 In your WSL VS Code window, navigate to the extensions manager (`File -> Preferences -> Extensions` or press `Ctrl-Shift-X`) and install the Python extension. Now the Python extension should be installed in the WSL remote.
 
-### GWSL Does Not Work (`python -m pygame.examples.aliens`) [#](#gwsl-does-not-work-python--m-pygameexamplesaliens)
+### GWSL Does Not Work (`python -m pygame.examples.aliens`) - WSL [#](#gwsl-does-not-work-python--m-pygameexamplesaliens)
 
 This is most likely an issue with Windows Defender’s firewall. For GWSL to work, you [MUST](https://opticos.github.io/gwsl/tutorials/manual.html#installing-gwsl) give GWSL’s XServer and PulseAudio server access on public networks.
 
@@ -428,3 +428,7 @@ In the Control Panel window, click the button which says `Change Settings`. Now 
 If it is still not working, contact a course assistant.
 
 ![Allow GWSL through the firewall](/gwsl_windows_defender.png)
+
+### Matplotlib - FigureCanvasAgg is non-interactive, and thus cannot be shown [#](#matplotlib-figurecanvasagg-is-non-interactive)
+
+Install `PyQt6` using `pip install PyQt6` if you're using pip or `uv add PyQt6` if you're using uv
