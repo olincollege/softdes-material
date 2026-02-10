@@ -335,11 +335,11 @@ You also need to set up Git to use VS Code for some of its operations.
 
 ### Directions [#](#directions-6)
 
-To set your name in Git, start Ubuntu in GWSL by opening the GWSL app, selecting “Linux Shell”, and choosing your version of Ubuntu. As you have done previously, you can run commands by typing text into the prompt you see and pressing Enter. Run the command `git config --global user.name "Alan Turing"`, substituting your name for `Alan Turing` (but leaving the quotes in place). This can be any name you want, though you should probably avoid using a name that may be seen an attempt to impersonate someone else (e.g., “Bill Gates”).
+Open the WSL terminal (Windows) or the terminal (Linux). Run the command `git config --global user.name "Alan Turing"`, substituting your name for `Alan Turing` (but leaving the quotes in place). This can be any name you want, though you should probably avoid using a name that may be seen an attempt to impersonate someone else (e.g., “Bill Gates”).
 
 To set your email, run `git config --global user.email "alan@turing.org"`, substituting your GitHub email address for `alan@turing.org`. It’s important that your email match the one that GitHub has, because a mismatch can make Git fail in unintuitive ways.
 
-To set Git to use VS Code, run `git config --global core.editor "code --wait"`. Again, leave the quotes in place.
+If you would like to set Git to use VS Code for text prompts, as opposed to your terminal's default text editor run `git config --global core.editor "code --wait"`. Again, leave the quotes in place.
 
 If you mistyped anything in quotes (your name, email, or `code --wait`) you can run that command again with the correct name/email to fix the typo. If you mistyped `user.name`, `user.email`, or `core.editor` in the commands, you can use `git config --unset user.naem` (replacing `user.naem` with whatever you mistyped earlier) to remove that setting, and try again.
 
