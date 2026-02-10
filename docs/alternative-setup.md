@@ -357,15 +357,15 @@ Sometimes, when interacting with code on GitHub (including your own), you need t
 
 ### Directions [#](#directions-7)
 
-To create the key, open Ubuntu in GWSL and run the command `ssh-keygen -t ecdsa`. You will be presented with a series of prompts; unless you know what changing these prompts will do, you should use the default settings (just hit Enter) for all of them. (In this case, it is fine to use a completely blank passphrase for this process.) This will create two files `id_ecdsa` and `id_ecdsa.pub`. **Never share the contents of `id_ecdsa` with anyone.** Doing so after you have added the key to GitHub will allow whomever you share the file with to authenticate to GitHub as you with no password necessary.
+To create the key, open your terminal and run the command `ssh-keygen -t ecdsa`. You will be presented with a series of prompts; unless you know what changing these prompts will do, you should use the default settings (just hit Enter) for all of them. (In this case, it is fine to use a completely blank passphrase for this process.) This will create two files `id_ecdsa` and `id_ecdsa.pub`. **Never share the contents of `id_ecdsa` with anyone.** Doing so after you have added the key to GitHub will allow whomever you share the file with to authenticate to GitHub as you with no password necessary.
 
 To add the key to GitHub, log into your account on GitHub. Click on your profile picture in the upper-right corner of the page and select Settings. Click on “SSH and GPG keys”, and then click on the “New SSH key” button to get a form you can fill with the details of your key. For “Title”, use a name that will help you remember the computer that you are currently setting up.
 
-For “Key”, start Ubuntu in GWSL and run `cat .ssh/id_ecdsa.pub`. You can highlight this text and press Ctrl-C to copy the text. (If you have highlighted text in WSL, Ctrl-C will copy text to your clipboard instead of stopping a program.) then, paste the text into the field. When submitting this form, you will likely be asked to reconfirm your GitHub password.
+For “Key”, run `cat ~/.ssh/id_ecdsa.pub`. You can highlight this text and press Ctrl-C to copy the text. (If you have highlighted text in WSL, Ctrl-C will copy text to your clipboard instead of stopping a program.) then, paste the text into the field. When submitting this form, you will likely be asked to reconfirm your GitHub password.
 
 ### Check [#](#check-7)
 
-Open Ubuntu and run the following command:
+Run the following command:
 
 ```
 ssh -T git@github.com
@@ -383,7 +383,7 @@ If instead you see `Permission denied (publickey).`, you should make sure that y
 
 ## End [#](#end)
 
-Once you have done this, you should be properly set up to complete Assignment 0. In general, if you need to start VS Code in this course, you should do so by running `code` in Ubuntu, as it tends to avoid some oddities that can occasionally come up.
+Once you have done this, you should be properly set up to complete assignments. In general, if you need to start VS Code in this course, you should do so by running `code` in Ubuntu, as it tends to avoid some oddities that can occasionally come up.
 
 ## Bonus [#](#bonus)
 
@@ -428,44 +428,3 @@ In the Control Panel window, click the button which says `Change Settings`. Now 
 If it is still not working, contact a course assistant.
 
 ![Allow GWSL through the firewall](/gwsl_windows_defender.png)
-
-(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()
-
-*   [Install and Configure Windows Subsystem for Linux (WSL)](#install-and-configure-windows-subsystem-for-linux-wsl)
-    *   [Context](#context)
-    *   [Directions](#directions)
-    *   [Check](#check)
-*   [Install Python/Anaconda](#install-python)
-    *   [Context](#context-1)
-    *   [Directions](#directions-1)
-    *   [Check](#check-1)
-*   [Install Quarto](#install-quarto)
-    *   [Context](#context-2)
-    *   [Directions](#directions-2)
-    *   [Check](#check-2)
-*   [Install VS Code](#install-vs-code)
-    *   [Context](#context-3)
-    *   [Directions](#directions-3)
-    *   [Check](#check-3)
-*   [Configure VS Code](#configure-vs-code)
-    *   [Context](#context-4)
-    *   [Directions](#directions-4)
-    *   [Check](#check-4)
-*   [Create a GitHub account](#create-a-github-account)
-    *   [Context](#context-5)
-    *   [Directions](#directions-5)
-    *   [Check](#check-5)
-*   [Configure Git](#configure-git)
-    *   [Context](#context-6)
-    *   [Directions](#directions-6)
-    *   [Check](#check-6)
-*   [Add an SSH key to GitHub](#add-an-ssh-key-to-github)
-    *   [Context](#context-7)
-    *   [Directions](#directions-7)
-    *   [Check](#check-7)
-*   [End](#end)
-*   [Bonus](#bonus)
-*   [Troubleshooting](#troubleshooting)
-    *   [No Network Access in Ubuntu](#no-network-access-in-ubuntu)
-    *   [VS Code Complains It Cannot Use the Python Extension](#vs-code-complains-it-cannot-use-the-python-extension)
-    *   [GWSL Does Not Work (`python -m pygame.examples.aliens`)](#gwsl-does-not-work-python--m-pygameexamplesaliens)
