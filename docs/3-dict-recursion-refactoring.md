@@ -1,6 +1,6 @@
 ---
 title: Reading 3 - Dictionaries, Recursion, & Refactoring
-nav_order: 6
+nav_order: 7
 layout: default
 ---
 
