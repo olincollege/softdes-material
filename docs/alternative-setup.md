@@ -84,7 +84,7 @@ This should open a window that looks like what you see below. Make sure that “
 
 In this window, type `wsl --install` and run the command by pressing Enter. You may get another prompt, and you can click Yes to move on again.
 
-Sometimes, the process can fail, in which case you should try running the command again. Make sure that what you see at the end of running this command shows that it was successful (in green below) rather than that something failed or was denied (in red below).
+Sometimes, the process can fail, in which case you should try running the command again. Make sure that what you see at the end of running this command shows that it was successful rather than that something failed or was denied.
 
 Once this is done, restart your machine.
 
@@ -165,7 +165,7 @@ Installation instructions for uv can be found on their [installation page](https
 
 For WSL and Ubuntu users, use any command in the `Standalone installer` section (just one, not all of them).
 
-If you happen to be using Arch, Nix, or Fedora, uv can be found in their respective package managers.
+If you happen to be using Arch, Nix, or Fedora, uv can be found in their respective package managers. (other distributions may have them, but these are just common distros)
 
 To test if the installation succeeded, close and reopen your terminal, then run `uv --version`. You should receive an output with `uv` and the current version.
 
@@ -280,7 +280,7 @@ You can set up VSCode to automatically run the formatter each time that you save
 
 1.  Click on the settings gear in the bottom left of the VSCode window & navigate to settings (alternatively, hitting Ctrl+, will work).
 2.  Search for `black`.
-3.  Under the option that says Python > Formatting: Provider, select black. ![Set Formatting to Autopep8](/set_formatting_to_autopep8.png)
+3.  Under the option that says Python > Formatting: Provider, select black. 
 4.  Search for “format and save”.
 5.  Check the box that says “Editor: Format on Save”. ![Enable Autoformat on Save](/enable_autoformat_on_save.png)
 
