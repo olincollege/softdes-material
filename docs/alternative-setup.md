@@ -170,13 +170,19 @@ If you happen to be using Arch, Nix, or Fedora, uv can be found in their respect
 To test if the installation succeeded, close and reopen your terminal, then run `uv --version`. You should receive an output with `uv` and the current version.
 
 #### uv Basics [#](#uv-basics)
-to be written
+Common commands you may find useful
 
 - `uv python install`
+    - install the latest python version
+    - not needed if you already have python installed, uv will use it automatically
 - `uv init <project>` and `uv init`
+    - initialize a project with git repo, `pyproject.toml`, and more in the specified directory, or in the current directory if none specified
 - `uv add <package>` and `uv remove`
+    - install/remove pip packages
 - `uv run <file>`
+    - when given a python file, if currently in a project runs the file in the project virtual environment, otherwise runs it in a contained virtual environment
 - `uv venv` (not needed with `uv run`)
+    - create a virtual environment in the current folder
 
 
 
