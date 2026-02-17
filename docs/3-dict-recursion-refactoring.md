@@ -5,6 +5,10 @@ layout: default
 ---
 
 # Reading 3: Dictionaries, Recursion, and Refactoring
+{: .no_toc }
+
+- TOC
+{:toc}
 
 In this reading, you will learn about dictionaries, which allow you to associate pairs of data, as well as tuples, which are similar to lists but can be more useful in some aspects of working with dictionaries. Not only are dictionaries commonly used in Python programming, but they also form a core part of how Python works under the hood (though we won't cover the latter here).
 
