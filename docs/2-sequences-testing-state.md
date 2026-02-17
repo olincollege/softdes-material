@@ -5,6 +5,10 @@ layout: default
 ---
 
 # Reading 2: Sequences, Testing, and Program State
+{: .no_toc }
+
+- TOC
+{:toc}
 
 In this reading, you will learn about two new types: lists and ranges. We call these types _sequences_ because they represent a collection of data arranged in a specific order. Sequences are particularly useful for another core feature of Python, called _loops_. Loops allow you to repeat blocks of code based on various conditions, and can be very useful in writing more complex functions and programs.
 

@@ -5,6 +5,10 @@ layout: default
 ---
 
 # Computational Setup Instructions: SoftDes Spring 2026
+{: .no_toc }
+
+- TOC
+{:toc}
 
 This year in SoftDes, you'll have the option of using Unity, part of the Massachusetts Green High Performance Computing Cluster. Although it's optional, we recommend using Unity (at least to start!). It's great for skill-building and will hopefully reduce friction, getting you up and running quickly. This document will introduce you to the system.
 
