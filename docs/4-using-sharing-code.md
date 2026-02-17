@@ -1,3 +1,9 @@
+---
+title: Reading 4 - Using & Sharing Code
+nav_order: 6
+layout: default
+---
+
 # Reading 4: Using and Sharing Code
 {: .no_toc }
 
