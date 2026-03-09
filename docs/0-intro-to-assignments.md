@@ -1,6 +1,6 @@
 ---
 title: Reading 0 - Tools & Python Basics
-nav_order: 3
+nav_order: 4
 layout: default
 ---
 
@@ -13,6 +13,7 @@ reference as you learn to work with code and submit assignments in Assignment 0.
 
 ## Table of Contents
 
+eioafioewfioefi
 - [Markdown](#markdown)
   - [Optional Exercise: Markdown Tutorial](#optional-exercise-markdown-tutorial)
 - [Jupyter](#jupyter)
