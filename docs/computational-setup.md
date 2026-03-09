@@ -86,6 +86,10 @@ mkdir [yourdirectory]
 10. If prompted, follow the instructions in each dialog to connect your GitHub account.
 11. After VS Code finishes cloning, click the `Open` button when asked whether to open the cloned repository.
 
+## Optional: Set up an SSH key
+This is a slightly more robust way to connect to GitHub, but it is more complicated. You can skip this, or skip it for now and come back to it later, or do this now, depending on how you are feeling. [Here are the instructions.](https://docs.unity.rc.umass.edu/documentation/connecting/ssh/)
+
+
 ## Activate Virtual Environment (to allow Quarto)
 
 Throughout this course, you will be working with a tool called Jupyter. Jupyter notebooks are a neat and interactive way to integrate text and code together, popular in data science. Unfortunately, the ipynb (Interactive PYthon NoteBook) format is notoriously difficult to work with in version control systems such as git, another tool you will use in this course.
