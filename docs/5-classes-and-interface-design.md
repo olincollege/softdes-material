@@ -4,19 +4,19 @@ nav_order: 9
 layout: default
 ---
 
-# Reading 5: Classes and Interface Design [#](#reading-5-classes-and-interface-design)
+# Reading 5: Classes and Interface Design
 
 Every object in Python has a type, such as `int` or `list`, that determines what you can do with that object. The types that you have learned so far in this course have been useful for a variety of programming tasks - you can store text as a `str`, count the frequency of each character in the text using a `dict`, or find the unique characters used in the text using a `set`.
 
 In this reading, we will discuss how you can define your own types through _classes_. By using classes, you can create objects that are well-suited to the programming task at hand. These objects essentially bundle data along with functions to read, process, or modify this data for a particular purpose. We will also discuss how to design a good _interface_ for a class, that is, the set of functions that the class provides.
 
-## Classes [#](#classes)
+## Classes
 
 A _class_ is essentially a collection of data and functions designed to be used for a specific purpose. Classes are used to define new types, and once you have declared a class, you can create new objects of that class called _instances_ in your code.
 
 Because the distinction between a class and an instance can be confusing, we will start by discussing this in more detail before covering how to define a class.
 
-### A class is a type, and an instance is an object [#](#a-class-is-a-type-and-an-instance-is-an-object)
+### A class is a type, and an instance is an object 
 
 Suppose you create an empty set object like this:
 
@@ -28,7 +28,7 @@ After this line executes, `words` is a set, and specifically, it is an _instance
 
 In the context of classes, this distinction is important, because some data can belong to the class as a whole while other data can belong to a specific instance of that class.
 
-### Classes have their own syntax and style [#](#classes-have-their-own-syntax-and-style)
+### Classes have their own syntax and style
 
 Here is an (incomplete) example class that we will use throughout this section to illustrate the various features of classes:
 
@@ -186,7 +186,7 @@ It is especially helpful to write a `__repr__` method because it can help others
 
 Like the `__init__` method, a class’s `__repr__` method is usually not called directly, but is automatically called as a result of calling `print` or `str` on a class instance.
 
-### Use a leading underscore to indicate internal attributes or methods [#](#use-a-leading-underscore-to-indicate-internal-attributes-or-methods)
+### Use a leading underscore to indicate internal attributes or methods 
 
 You may have noticed that the `PlayerSpaceship` class has attributes named `_left_engine_thrust` and `_right_engine_thrust`, with a leading underscore in the name of each. This is done to indicate that these variables should not be accessed outside of the class’s implementation.
 
@@ -199,7 +199,7 @@ spaceship._left_engine_thrust = 50
 
 Thus naming attributes or functions in this way is mostly as a reminder to you and to those using your code, much like the use of `_` as a variable name. That being said, some automated checkers in IDEs like VS Code will generate a warning if your code accesses an internal attribute or method outside of a class.
 
-### Classes can also have attributes [#](#classes-can-also-have-attributes)
+### Classes can also have attributes 
 
 At the beginning of the `PlayerSpaceship` definition, we defined some variables like this:
 
@@ -234,7 +234,7 @@ This is because the statement `spaceship.mass = 42` creates a new _instance attr
 
 Be careful with class attributes! When in doubt, always change its value through the class name, but in general, you should avoid changing class attributes at all if possible.
 
-### Classes should have docstrings [#](#classes-should-have-docstrings)
+### Classes should have docstrings 
 
 Like functions, classes should have docstrings. The format is nearly identical to that of functions, except that you should list the attributes of the class:
 
@@ -261,7 +261,7 @@ Internal attributes do not need to be listed in the docstring, but you should st
 
 Methods, like any other function, should have a docstring with the usual formatting.
 
-### Documenting Exceptions [#](#documenting-exceptions)
+### Documenting Exceptions 
 
 “Raises” can be used to list all exceptions relevant to the function followed by a description of the exception. Exceptions that are raised due to a violation of the conditions present in the docstring should not be included.
 
@@ -285,11 +285,11 @@ class PlayerSpaceship:
             print("Not a valid number.")
 ```
 
-## Interface Design [#](#interface-design)
+## Interface Design 
 
 So far, we have discussed several aspects of how you _can_ design and implement classes, but we have not yet described how you _should_ design and implement classes. As you design a class, it is particularly important to consider your class’s _interface_, that is, the set of public attributes and methods it offers for other code to interact with it.
 
-### Public & Private [#](#public--private)
+### Public & Private 
 
 Prior to entering this section, make sure that you are at least somewhat familiar with the following terms:
 
@@ -298,13 +298,13 @@ Prior to entering this section, make sure that you are at least somewhat familia
 *   instance variable - a variable that is initialized on an instance by instance basis and can differ between instances
 *   class variable - a variable that is the same for all instances of a single class
 
-### Deciding on Public Versus Private [#](#deciding-on-public-versus-private)
+### Deciding on Public Versus Private 
 
 Determining whether variables should be public or private typically should be done before any code is written in order to minimize the amount of refactoring that you have to do.
 
 “Private” variables are those that will never be modified outside of the class that they are within. Private variables are represented by adding `_` as a prefix to the variable’s name. For example, a variable storing the name of an object would be `_name` as opposed to `name`. While this is merely a syntax change (you won’t get an error for trying to modify the variable outside of the class it was created within), it makes code easier to read both for yourself & others.
 
-#### Use private instance attributes in almost all cases [#](#use-private-instance-attributes-in-almost-all-cases)
+#### Use private instance attributes in almost all cases 
 
 In general, you should make instance attributes private. By making an instance attribute private, you can have more confidence that it will be accessed and modified only in the way that you have implemented in the class methods.
 
@@ -353,7 +353,7 @@ class Character:
 
 By using private instance attributes in this way, you can ensure that the “state” of your class instances always remain valid. Again, you cannot stop code from changing the values of these attributes, but a private instance variable will make it a bit easier for you or a user of your code to realize that doing so is a mistake.
 
-##### Only use public instance attributes for data containers [#](#only-use-public-instance-attributes-for-data-containers)
+##### Only use public instance attributes for data containers 
 
 If your class is simply designed to “hold data” and not do anything with it, or if your class has no “invalid” set of instance attributes, it is fine to make the instance attributes public. For example, if you have a class designed to represent an object in a physics simulator, you might define it like this:
 
@@ -371,9 +371,9 @@ This class is essentially equivalent to a tuple of four elements, except that ra
 
 If you want to use a class like this, you may find it useful to use the [`collections.namedtuple`](https://docs.python.org/3/library/collections.html#collections.namedtuple) class in the Python standard library.
 
-### Methods should access private instance attributes or methods [#](#methods-should-access-private-instance-attributes-or-methods)
+### Methods should access private instance attributes or methods 
 
-#### Avoid exposing implementation details [#](#avoid-exposing-implementation-details)
+#### Avoid exposing implementation details 
 
 Finally, you should avoid exposing the internal details of a class’s private instance attributes in the interface of the class. Suppose that you create a class that keeps a list of integers, like this:
 
@@ -406,7 +406,7 @@ class AccountChecker:
 
 In this way, if you ever change the type of `_accounts_to_check`, you can simply change the implementation of `next_account` and existing code that uses `AccountChecker` will continue to operate as is.
 
-### Properties [#](#properties)
+### Properties 
 
 Properties are a feature of python that allows for creating “getters” in classes by adding the `@property` decorator tag prior to a function.
 
