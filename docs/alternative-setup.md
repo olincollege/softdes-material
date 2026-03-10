@@ -52,7 +52,7 @@ All Linux instructions assume a basic understanding of the command line and your
     -   [VS Code Complains It Cannot Use the Python Extension](#vs-code-complains-it-cannot-use-the-python-extension)
     -   [GWSL Does Not Work (`python -m pygame.examples.aliens`)](#gwsl-does-not-work-python--m-pygameexamplesaliens)
 
-# Computational Setup [#](#computational-setup)
+# Computational Setup 
 
 This guide walks you through the steps necessary to set up your computer for the work you will do in this course. Once you have completed this setup, you should have all of the software tools you need to complete the worksheets and projects in this course.
 
@@ -60,21 +60,21 @@ We have split each step into a _Context_ section that explains what you are doin
 
 The setup has quite a few steps and may appear daunting at first. We ask that you try to follow these instructions as closely as you can, because we have done quite a bit of testing with these instructions and have confirmed that they work reasonably well for most student setups. If you run into any issues, please checkout the [troubleshooting](#troubleshooting) section, which has solutions for common issues. If you need our help, it will be very helpful for us to know if and how you did anything differently from what these instructions specify. We are happy to provide help if you get stuck, so please do not hesitate to ask!
 
-## Windows [#](#windows)
+## Windows 
 
 If you are on Linux or macOS, you may skip this section.
 
-### Install and Configure Windows Subsystem for Linux (WSL) [#](#install-and-configure-windows-subsystem-for-linux-wsl)
+### Install and Configure Windows Subsystem for Linux (WSL) 
 
-#### Context [#](#context)
+#### Context 
 
 Most previous iterations of this course were taught in Ubuntu Linux ([website](https://ubuntu.com/)), and many subsequent computing courses are taught in a Linux environment. Because of this, much of our actual coding work will take place in an approximation of an Ubuntu system _within_ your Windows operating system. _Windows Subsystem for Linux (WSL)_ provides the infrastructure needed to install and run Ubuntu on Windows. In this step, you will install and configure both WSL and Ubuntu.
 
-#### Directions [#](#directions)
+#### Directions 
 
 First, you need to install WSL on your system. You can then install the appropriate version of Ubuntu for this course.
 
-##### Install WSL [#](#install-wsl)
+##### Install WSL 
 
 From the Start menu, open PowerShell **as an administrator**.
 
@@ -88,7 +88,7 @@ Sometimes, the process can fail, in which case you should try running the comman
 
 Once this is done, restart your machine.
 
-##### Set up the Ubuntu user [#](#set-up-the-ubuntu-user)
+##### Set up the Ubuntu user 
 
 If everything has gone well, you should be able to select and launch the Ubuntu app from your Start menu. The first launch may take a bit of time to start up.
 
@@ -100,7 +100,7 @@ These do not have to match what you use for Windows, and can be whatever you’d
 
 You may also see a firewall warning when first starting Ubuntu. Allowing connections with the default configuration (on private networks only) is fine.
 
-#### Check [#](#check)
+#### Check
 
 To test that everything works, launch Ubuntu. You should see a line ending in `$` with a blinking cursor after it, and you should be able to type text. Try typing `ping olin.edu` and pressing Enter. You should see lines that look like this:
 
@@ -113,9 +113,9 @@ PING olin.edu (54.225.220.247) 56(84) bytes of data.
 
 A new line will appear around once every second. You should be able to stop this program by pressing Ctrl-C. (When running commands this way, Ctrl-C stops the current program instead of copying to the clipboard, as you might be used to.)
 
-## Install Python [#](#install-python)
+## Install Python
 
-### Context [#](#context-1)
+### Context
 
 Because virtually all code for this course will be written in Python, you will need to have the Python programming language installed on your computer. 
 The privous way to install Python in this course is with Anaconda, which is a bundle of software that includes the Python programming language, a collection of useful additional libraries for data science, and some helpful support tools. If you go the Anaconda route, you should install the Individual edition, which is free to download and use.
@@ -124,7 +124,7 @@ The writer of this section (Evi) has also had a good experience with [uv](https:
 
 If you know what you are doing, you are free to look up and use a different installation approach, but if something goes wrong, it is unlikely that we can provide support.
 
-### Anaconda Directions [#](#directions-1-1)
+### Anaconda Directions
 
 These directions are adapted from the official [Anaconda Linux installation instructions](https://docs.anaconda.com/anaconda/install/linux/). If something goes wrong with the installation process, we recommend that you check there for a fix before asking for help.
 
@@ -159,7 +159,7 @@ Anaconda](/anaconda_base_prompt.png)
 
 If you don’t see `(base)`, try typing `conda` and pressing Enter. If you see something like `conda: command not found`, then the installation did not complete successfully. You should be able to try the installation instructions again. If you instead see output that starts with `usage: conda [-h] [-V] command ...`, then you may not have answered “yes” to having the installer initialize Anaconda. In this case, you should be able to run `conda init`, and then close and re-launch Ubuntu.
 
-### uv Directions [#](#directions-1-2)
+### uv Directions
 
 Installation instructions for uv can be found on their [installation page](https://docs.astral.sh/uv/getting-started/installation/).
 
@@ -169,7 +169,7 @@ If you happen to be using Arch, Nix, or Fedora, uv can be found in their respect
 
 To test if the installation succeeded, close and reopen your terminal, then run `uv --version`. You should receive an output with `uv` and the current version.
 
-#### uv Basics [#](#uv-basics)
+#### uv Basics
 Common commands you may find useful
 
 - `uv python install`
@@ -186,15 +186,15 @@ Common commands you may find useful
 
 
 
-## Install Quarto [#](#install-quarto)
+## Install Quarto
 
-### Context [#](#context-2)
+### Context
 
 Throughout this course, you will be working with a tool called [Jupyter](https://jupyter.org/). Jupyter notebooks are neat and interactive way to integrate text and code together, popular in data science. Unfortunately, the `ipynb` (Interactive PYthon NoteBook) format is notoriously difficult to work with in version control systems such as [git](https://git-scm.com/), another tool you will use in this course.
 
 For that reason, we have you install [Quarto](https://quarto.org/), an open source publishing system. Quarto has a file format called `qmd` (Quarto Markdown), which we use as an intermediate format for managing Jupyter notebooks.
 
-### Directions [#](#directions-2)
+### Directions
 
 #### Windows (WSL) and Ubuntu Linux
 Navigate to the Quarto [Getting Started](https://quarto.org/docs/get-started/) page and find the download link for the **Linux** (not Windows) version. It should look something like `quarto-X.X.XXX-linux-amd64.deb`. Right click this and select `copy link` or `copy link address` depending on your browser.
@@ -213,7 +213,7 @@ Run this command by pressing Enter. You should see it download. Once the downloa
 Installation on other Linux distributions varies. Arch users may download `quarto-cli-bin` from the AUR.
 
 
-### Check [#](#check-2)
+### Check
 
 To test that Quarto installed successfully, run the following command in the terminal:
 
@@ -229,13 +229,13 @@ quarto: command not found
 
 Try starting again from the Quarto instructions. If that does not work, see a CA.
 
-## Install VS Code [#](#install-vs-code)
+## Install VS Code
 
-### Context [#](#context-3)
+### Context
 
 It is possible to write Python code in a plain text editor, such as Notepad, but you will likely find that this is a rather tedious and difficult process because plain text editors have no knowledge of Python’s formatting or syntax. For this course, we will use a code editor called Visual Studio Code (often called VS Code). We recommend this editor because it is widely used, free, and able to run on Windows, Mac, and Linux.
 
-### Directions [#](#directions-3)
+### Directions
 
 #### Windows
 
@@ -246,13 +246,13 @@ Go to the [VS Code Download page](https://code.visualstudio.com/download) and cl
 #### Linux
 Install VS Code using your distribution's package manager. It is typically named `vscode` or `visual-studio-code`.
 
-### Check [#](#check-3)
+### Check
 
 To test that you have installed VS Code correctly, you only need to make sure that it launches for now.
 
-## Configure VS Code [#](#configure-vs-code)
+## Configure VS Code
 
-### Directions [#](#directions-4)
+### Directions
 
 Launch Ubuntu in GWSL by opening the GWSL app, selecting “Linux Shell”, and choosing your version of Ubuntu. Then run `code` (type it in and press Enter). The first time you run this command, it will do some setup on WSL, so it may take awhile.
 
@@ -260,7 +260,7 @@ If you just installed VS Code and you see `code: command not found`
  - for Windows restart WSL by opening the GWSL menu and navigating to `GWSL Distro Tools -> Reboot Ubuntu`.
  - for Linux restart your terminal
 
-#### Install Remote WSL Extension - Windows WSL Only [#](#install-remote-wsl-extension)
+#### Install Remote WSL Extension - Windows WSL Only
 
 Once it has started, you will need to install the Remote WSL extension. Navigate to the extensions menu via `File -> Preferences -> Extensions` or by pressing Ctrl-Shift-X. Then search for and install the extension “Remote - WSL”. If you already installed the “Remote - WSL” extension when opening VS Code earlier, you do not need to do so again.
 
@@ -272,13 +272,13 @@ After installing the Remote WSL extension, you should see a small green box in t
 
 A new VS Code window should open. In the bottom left, the little green box should now say `WSL: Ubuntu`.
 
-#### Install Python Extension [#](#install-python-extension-inside-vs-code-remote)
+#### Install Python Extension
 
 Now you need to install the Python extension for VS Code. Inside your VS Code window (if you're using Windows make sure it says `WSL: Ubuntu` in the bottom left), navigate to the extensions menu via `File -> Preferences -> Extensions` or by pressing Ctrl-Shift-X. Search for the Python extension. Click the install button. 
 
 ![Install Python extension in VS Code](/vscode_install_python_in_wsl.png)
 
-#### Set Up Automatic Formatting [#](#set-up-automatic-formatting)
+#### Set Up Automatic Formatting
 
 In assignment 0, you will learn about autoformatting code and be introduced to a tool called black which helps standardize various conventions, especially those revolving around whitespace usage in code.
 
@@ -290,7 +290,7 @@ You can set up VSCode to automatically run the formatter each time that you save
 4.  Search for “format and save”.
 5.  Check the box that says “Editor: Format on Save”. ![Enable Autoformat on Save](/enable_autoformat_on_save.png)
 
-##### Pylint Checker [#](#pylint-checker)
+##### Pylint Checker
 
 You will also learn about using a tool called `pylint` in order to check for additional style conventions like variable naming convention.
 
@@ -300,31 +300,31 @@ While VSCode cannot automatically fix a majority of these issues, you can set it
 2.  Type “Python: Select Linter” into the textbox that is brought up.
 3.  Select pylint from the dropdown of various linting conventions.. ![Pylint Checker](/pylint_checker.png)
 
-### Check [#](#check-4)
+### Check
 
 To check that you completed this step properly, launch VS Code if it is not already running by running the `code` command. If on windows, once the VS Code window opens, make sure that the lower left corner shows a green box that says “WSL - Ubuntu”. If you do not see this, open the extensions menu as described above and make sure that the “Remote - WSL” extension shows as installed.
 
 Then, open a new file from the File menu or by pressing Ctrl-N. Then save the (blank) file from the File menu or by pressing Ctrl-S. You can save the file under any name as long as it ends in `.py`. If you see a message that says “Select Python interpreter” as a popup, Choose the interpreter that ends in “(‘base’: conda)” and make sure that it appears in the lower left corner. If you do not see this prompt, make sure that the “Python” extension is installed.
 
-## Create a GitHub account [#](#create-a-github-account)
+## Create a GitHub account
 
-### Context [#](#context-5)
+### Context
 
 In this course, we use a tool called Git, which is a system for managing versions of your code. To share your code with others, it’s helpful to use a hosting service that stores an online copy of your code and its history. (The copy does not necessarily have to be publicly accessible, though this is often the reason for hosting your code online.) For this purpose, we will use GitHub. In this step, you will create a GitHub account.
 
-### Directions [#](#directions-5)
+### Directions
 
 If you don’t already have a GitHub account, go to [https://github.com](https://github.com/) and create an account. Feel free to use any email address you want (or create one just for this account), but remember which email address you use, as you will need it when configuring Git on your computer (which is a later step in this guide). Your username does not have to be related to your actual name at all. That being said, like most usernames, it will be publicly visible, so if you plan on sharing code with the world, make sure you choose a username that you would be comfortable with others seeing.
 
-### Check [#](#check-5)
+### Check
 
 To test that you have correctly set up your GitHub account, go to `https://github.com/username`, replacing `username` with the username you created. You should see a profile page for your username. If you get a 404 page, you may not have completed the account creation process.
 
 You may also want to check that you can log into your account.
 
-## Configure Git [#](#configure-git)
+## Configure Git
 
-### Context [#](#context-6)
+### Context
 
 In order for Git to operate properly, and to make sure that services like GitHub can attribute your work to your account, you need to configure Git with your name and email address.
 
@@ -332,7 +332,7 @@ If you try to do other operations in Git without having set up your name and ema
 
 You also need to set up Git to use VS Code for some of its operations.
 
-### Directions [#](#directions-6)
+### Directions
 
 Open the WSL terminal (Windows) or the terminal (Linux). Run the command `git config --global user.name "Alan Turing"`, substituting your name for `Alan Turing` (but leaving the quotes in place). This can be any name you want, though you should probably avoid using a name that may be seen an attempt to impersonate someone else (e.g., “Bill Gates”).
 
@@ -342,19 +342,19 @@ If you would like to set Git to use VS Code for text prompts, as opposed to your
 
 If you mistyped anything in quotes (your name, email, or `code --wait`) you can run that command again with the correct name/email to fix the typo. If you mistyped `user.name`, `user.email`, or `core.editor` in the commands, you can use `git config --unset user.naem` (replacing `user.naem` with whatever you mistyped earlier) to remove that setting, and try again.
 
-### Check [#](#check-6)
+### Check
 
 You can check that this process was successful by running `git config --list`. If you see lines starting with `user.name`, `user.email`, and `config.editor` with the values you expect, then the process was successful. You may see other parts of your configuration, but you can ignore these.
 
 ![Configure git](/configure_git.png)
 
-## Add an SSH key to GitHub [#](#add-an-ssh-key-to-github)
+## Add an SSH key to GitHub
 
-### Context [#](#context-7)
+### Context
 
 Sometimes, when interacting with code on GitHub (including your own), you need to authenticate yourself to GitHub. To do this, you will set up credentials on your computer in the form of an SSH (Secure SHell) key. The process consists of two steps: creating the key on your computer, and telling GitHub what this key is.
 
-### Directions [#](#directions-7)
+### Directions
 
 To create the key, open your terminal and run the command `ssh-keygen -t ecdsa`. You will be presented with a series of prompts; unless you know what changing these prompts will do, you should use the default settings (just hit Enter) for all of them. (In this case, it is fine to use a completely blank passphrase for this process.) This will create two files `id_ecdsa` and `id_ecdsa.pub`. **Never share the contents of `id_ecdsa` with anyone.** Doing so after you have added the key to GitHub will allow whomever you share the file with to authenticate to GitHub as you with no password necessary.
 
@@ -362,7 +362,7 @@ To add the key to GitHub, log into your account on GitHub. Click on your profile
 
 For “Key”, run `cat ~/.ssh/id_ecdsa.pub`. You can highlight this text and press Ctrl-C to copy the text. (If you have highlighted text in WSL, Ctrl-C will copy text to your clipboard instead of stopping a program.) then, paste the text into the field. When submitting this form, you will likely be asked to reconfirm your GitHub password.
 
-### Check [#](#check-7)
+### Check
 
 Run the following command:
 
@@ -380,11 +380,11 @@ Hi (user)! You've successfully authenticated, but GitHub does not provide shell 
 
 If instead you see `Permission denied (publickey).`, you should make sure that your SSH key was correctly pasted into GitHub earlier. If not, you can set up they key again on your GitHub account.
 
-## End [#](#end)
+## End
 
 Once you have done this, you should be properly set up to complete assignments. In general, if you need to start VS Code in this course, you should do so by running `code` in Ubuntu, as it tends to avoid some oddities that can occasionally come up.
 
-## Bonus [#](#bonus)
+## Bonus
 
 Since you read all the way to the end of this page (or maybe you just skipped down using the table of contents, but whatever), here’s a fun Python-related XKCD:
 
@@ -393,9 +393,9 @@ Environment](https://imgs.xkcd.com/comics/python_environment.png)
 
 _Source_: [https://xkcd.com/1987/](https://xkcd.com/1987/)
 
-## Troubleshooting [#](#troubleshooting)
+## Troubleshooting
 
-### No Network Access in Ubuntu - WSL [#](#no-network-access-in-ubuntu)
+### No Network Access in Ubuntu - WSL
 
 Examples of this occurring in the computational setup:
 
@@ -404,7 +404,7 @@ Examples of this occurring in the computational setup:
 
 This is due to the firewall installed on your Olin laptop blocking network access to WSL. As of Spring 2022, Olin uses Symantec for its firewall. You can temporally disable Symantec. Press `Win-R` on your keyboard. A window called “run” will open in the bottom left. In the text box, type `smc -stop`. Windows will ask if you want Symantec to make changes to your device. Select `yes`. Symantec will be temporally disabled.
 
-### VS Code Complains It Cannot Use the Python Extension - WSL [#](#vs-code-complains-it-cannot-use-the-python-extension)
+### VS Code Complains It Cannot Use the Python Extension - WSL 
 
 The WSL Remote extension creates multiple profiles for VS Code, one for Windows (local), and one for every version of Linux you have installed for WSL (remotes). What is most likely happening here is the Python extension is installed under the local profile. It needs to be installed in the remote profile to work.
 
@@ -412,7 +412,7 @@ To fix this, open a VS Code window, make sure it says `WSL: Ubuntu` in the botto
 
 In your WSL VS Code window, navigate to the extensions manager (`File -> Preferences -> Extensions` or press `Ctrl-Shift-X`) and install the Python extension. Now the Python extension should be installed in the WSL remote.
 
-### GWSL Does Not Work (`python -m pygame.examples.aliens`) - WSL [#](#gwsl-does-not-work-python--m-pygameexamplesaliens)
+### GWSL Does Not Work (`python -m pygame.examples.aliens`) - WSL
 
 This is most likely an issue with Windows Defender’s firewall. For GWSL to work, you [MUST](https://opticos.github.io/gwsl/tutorials/manual.html#installing-gwsl) give GWSL’s XServer and PulseAudio server access on public networks.
 
@@ -428,6 +428,6 @@ If it is still not working, contact a course assistant.
 
 ![Allow GWSL through the firewall](/gwsl_windows_defender.png)
 
-### Matplotlib - FigureCanvasAgg is non-interactive, and thus cannot be shown [#](#matplotlib-figurecanvasagg-is-non-interactive)
+### Matplotlib - FigureCanvasAgg is non-interactive, and thus cannot be shown
 
 Install `PyQt6` using `pip install PyQt6` if you're using pip or `uv add PyQt6` if you're using uv
