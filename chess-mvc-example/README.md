@@ -15,3 +15,8 @@ The main source code is found in the `src/` directory.
 This repository is missing crucial portions of a full-fledged project: unit
 tests, installation code and instructions, and an implementation. Again, **this
 is an example**.
+
+
+## Author
+
+Steve Matsumoto

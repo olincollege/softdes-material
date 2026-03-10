@@ -1,5 +1,5 @@
 ---
-title: Reading 5 - Classes and Interface Design
+title: Reading 6 - Software Architecture Design
 nav_order: 10
 layout: default
 ---
@@ -170,7 +170,7 @@ To illustrate how composition and inheritance might be used in a larger software
 
 In short, the MVC architecture consists of three main components: the model, the view, and the controller. Each of these is responsible for a core feature of the system. MVC is designed for _modularity_: each of the model, view, and controller components offer an interface that allows it to be easily switched out with other classes. This design makes it straightforward to extend or improve components as time goes on.
 
-In this example, we will provide a fairly minimalistic example that highlights the design of the system. If you want to see a more detailed (but not implemented) example for this game, you can view more annotated code at [https://github.com/olincollege/softdes-material/chess-mvc-example](https://github.com/olincollege/softdes-material/chess-mvc-example).
+In this example, we will provide a fairly minimalistic example that highlights the design of the system. If you want to see a more detailed (but not implemented) example for this game, you can view more annotated code at [this SoftDes chess MVC example](https://github.com/olincollege/softdes-material/tree/main/chess-mvc-example).
 
 ### The model represents the state of the system 
 
